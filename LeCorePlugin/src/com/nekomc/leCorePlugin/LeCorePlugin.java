@@ -17,5 +17,11 @@ public String isGabeAwesome() {
 		return "yes";
 		
 	}
+
+
+private boolean isLewisAmazing(){
+	
+	return true;
+}
 	
 }
