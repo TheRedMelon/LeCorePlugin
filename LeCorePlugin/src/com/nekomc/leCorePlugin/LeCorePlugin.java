@@ -10,4 +10,9 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
+	public void testFunc() {
+		
+		
+	}
+	
 }
