@@ -31,4 +31,11 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
+	private void test() {
+		
+		
+		boolean foobar = true;
+		
+	}
+	
 }
