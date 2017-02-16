@@ -8,6 +8,7 @@ public class LeCorePlugin {
 	
 	public void onEnable() {
 		
+		// the truth will be returned
 		isGabeAwesome();
 		
 	}
