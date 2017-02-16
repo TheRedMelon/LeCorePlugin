@@ -10,6 +10,7 @@ public class LeCorePlugin {
 		
 		// the truth will be returned
 		isGabeAwesome();
+		isLewisAmazing();
 		
 	}
 	
