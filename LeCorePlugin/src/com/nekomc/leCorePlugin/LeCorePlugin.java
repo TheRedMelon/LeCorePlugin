@@ -30,5 +30,5 @@ public class LeCorePlugin extends JavaPlugin {
 		pm.registerEvents(new PlayerJoin(), this);
 		
 	}
-
+ 
 }
