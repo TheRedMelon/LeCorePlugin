@@ -10,6 +10,7 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
+<<<<<<< HEAD
 	public void testFunc() {
 		
 		
@@ -18,4 +19,6 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
+=======
+>>>>>>> branch 'master' of https://github.com/TheRedMelon/LeCorePlugin
 }
