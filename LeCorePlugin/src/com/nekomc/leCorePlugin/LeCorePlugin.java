@@ -10,12 +10,4 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
-	public void testFunc() {
-		
-		
-		
-		String foobar;
-		
-	}
-	
 }
