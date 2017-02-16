@@ -30,9 +30,5 @@ public class LeCorePlugin extends JavaPlugin {
 		pm.registerEvents(new PlayerJoin(), this);
 		
 	}
-<<<<<<< HEAD
- 
-=======
 	
->>>>>>> branch 'master' of https://github.com/TheRedMelon/LeCorePlugin
 }
