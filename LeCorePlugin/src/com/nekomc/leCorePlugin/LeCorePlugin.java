@@ -18,7 +18,7 @@ public class LeCorePlugin extends JavaPlugin {
 		
 		plugin = this;
 		
-		playerCount = 0;
+		playerCount = getServer().getOnlinePlayers().size();
 		maxPlayers = getServer().getMaxPlayers();
 		
 		registerEvents();
