@@ -14,6 +14,8 @@ public class LeCorePlugin extends JavaPlugin {
 		
 		
 		
+		String foobar;
+		
 	}
 	
 }
