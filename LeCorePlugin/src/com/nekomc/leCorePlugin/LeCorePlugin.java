@@ -4,5 +4,17 @@ package com.nekomc.leCorePlugin;
  */
 
 public class LeCorePlugin {
-
+	
+	public void onEnable() {
+		
+		isGabeAwesome();
+		
+	}
+	
+public String isGabeAwesome() {
+		
+		return "yes";
+		
+	}
+	
 }
