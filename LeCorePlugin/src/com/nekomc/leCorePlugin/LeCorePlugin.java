@@ -30,16 +30,5 @@ public class LeCorePlugin extends JavaPlugin {
 		pm.registerEvents(new PlayerJoin(), this);
 		
 	}
-<<<<<<< HEAD
 	
-	private void test() {
-		
-		boolean boofar = false;
-		boolean foobar = true;
-		
-	}
-	
-=======
-
->>>>>>> branch 'master' of https://github.com/TheRedMelon/LeCorePlugin.git
 }
