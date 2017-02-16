@@ -10,15 +10,4 @@ public class LeCorePlugin extends JavaPlugin {
 		
 	}
 	
-<<<<<<< HEAD
-	public void testFunc() {
-		
-		
-		String lmao;
-		String foobar;
-		
-	}
-	
-=======
->>>>>>> branch 'master' of https://github.com/TheRedMelon/LeCorePlugin
 }
