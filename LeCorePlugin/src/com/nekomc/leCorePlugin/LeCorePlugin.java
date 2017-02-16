@@ -33,7 +33,7 @@ public class LeCorePlugin extends JavaPlugin {
 	
 	private void test() {
 		
-		
+		boolean boofar = false;
 		boolean foobar = true;
 		
 	}
