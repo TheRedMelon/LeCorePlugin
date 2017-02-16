@@ -13,7 +13,7 @@ public class LeCorePlugin extends JavaPlugin {
 	public void testFunc() {
 		
 		
-		
+		String lmao;
 		String foobar;
 		
 	}
