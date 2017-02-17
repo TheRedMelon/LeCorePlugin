@@ -45,18 +45,18 @@ public class Hub {
 		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));
 		Score blank7 = serverObje.getScore("       ");
 		
-		Score pLine1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
-		Score pBlank1 = serverObje.getScore(" ");
-		Score pLevel1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
-		Score pLevel2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)));
-		Score pBlank2 = serverObje.getScore("  ");
-		Score pXp1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "XP For Next Level:");
-		Score pXp2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + new Leveling().getProgress(id));
-		Score pBlank3 = serverObje.getScore("   ");
-		Score pRank1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Rank:");
-		Score pRank2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + new Misc().getRank(id));
-		Score pBlank4 = serverObje.getScore("    ");
-		Score pLine2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------ ");
+		Score pLine1 = playerObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
+		Score pBlank1 = playerObje.getScore(" ");
+		Score pLevel1 = playerObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
+		Score pLevel2 = playerObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)));
+		Score pBlank2 = playerObje.getScore("  ");
+		Score pXp1 = playerObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "XP For Next Level:");
+		Score pXp2 = playerObje.getScore(ChatColor.LIGHT_PURPLE + new Leveling().getProgress(id));
+		Score pBlank3 = playerObje.getScore("   ");
+		Score pRank1 = playerObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Rank:");
+		Score pRank2 = playerObje.getScore(ChatColor.LIGHT_PURPLE + new Misc().getRank(id));
+		Score pBlank4 = playerObje.getScore("    ");
+		Score pLine2 = playerObje.getScore(ChatColor.LIGHT_PURPLE + "------------------ ");
 		
 		line1.setScore(21);
 		blank1.setScore(20);
