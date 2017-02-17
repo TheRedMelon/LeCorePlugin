@@ -22,12 +22,15 @@ public class Hub {
 	
 	public void showPlayer (UUID id) {
 		
-		Scoreboard board = sbm.getNewScoreboard();
-		Objective serverObje = board.registerNewObjective("server", "dummy");
-		Objective playerObje = board.registerNewObjective("player", "dummy");
+		Scoreboard serverBoard = sbm.getNewScoreboard();
+		Scoreboard playerBoard = sbm.getNewScoreboard();
+		Objective serverObje = serverBoard.registerNewObjective("server", "dummy");
+		Objective playerObje = playerBoard.registerNewObjective("player", "dummy");
 		
 		serverObje.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks Server");
 		playerObje.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks Player");
+		serverObje.setDisplaySlot(DisplaySlot.SIDEBAR);
+		playerObje.setDisplaySlot(DisplaySlot.SIDEBAR);
 		
 		Score line1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = serverObje.getScore(" ");
@@ -81,21 +84,19 @@ public class Hub {
 		pBlank4.setScore(11);
 		pLine2.setScore(10);
 		
-		Bukkit.getServer().getPlayer(id).setScoreboard(board);
-		
 		bs.scheduleSyncRepeatingTask(NekoBoard.plugin, new Runnable() {
 
 			@Override
 			public void run() {
 				
-				serverObje.setDisplaySlot(DisplaySlot.SIDEBAR);
+				Bukkit.getServer().getPlayer(id).setScoreboard(playerBoard);
 				
 				bs.scheduleSyncDelayedTask(NekoBoard.plugin, new Runnable() {
 
 					@Override
 					public void run() {
 						
-						serverObje.setDisplaySlot(DisplaySlot.SIDEBAR);
+						Bukkit.getServer().getPlayer(id).setScoreboard(serverBoard);
 						
 					}
 					
