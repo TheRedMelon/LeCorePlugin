@@ -10,6 +10,10 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 
+import com.nekomc.leCorePlugin.LeCorePlugin;
+import com.nekomc.leCorePlugin.playerMisc.Leveling;
+import com.nekomc.leCorePlugin.playerMisc.Misc;
+
 public class Hub {
 
 	ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
@@ -25,23 +29,23 @@ public class Hub {
 		Score line1 = obje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = obje.getScore(" ");
 		Score level1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
-		Score level2 = obje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(00000000000000000));
+		Score level2 = obje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)));
 		Score blank2 = obje.getScore(" ");
 		Score xp1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "XP For Next Level:");
-		Score xp2 = obje.getScore(ChatColor.LIGHT_PURPLE + "000000000000000000000");
+		Score xp2 = obje.getScore(ChatColor.LIGHT_PURPLE + new Leveling().getProgress(id));
 		Score blank3 = obje.getScore(" ");
 		Score rank1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Rank:");
-		Score rank2 = obje.getScore(ChatColor.LIGHT_PURPLE + "000000000000000000000");
+		Score rank2 = obje.getScore(ChatColor.LIGHT_PURPLE + new Misc().getRank(id));
 		Score blank4 = obje.getScore(" ");
 		Score website1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Website:");
 		Score website2 = obje.getScore(ChatColor.LIGHT_PURPLE + "www.nekomc.com");
 		Score blank5 = obje.getScore(" ");
 		Score line2 = obje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score server1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Server:");
-		Score server2 = obje.getScore(ChatColor.LIGHT_PURPLE + "00000000000000000");
+		Score server2 = obje.getScore(ChatColor.LIGHT_PURPLE + LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(id).getWorld().getName()));
 		Score blank6 = obje.getScore(" ");
 		Score pCount1 = obje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Online Players:");
-		Score pCount2 = obje.getScore(ChatColor.LIGHT_PURPLE + "0000000000000" + "/" + "00000000000");
+		Score pCount2 = obje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));
 		Score blank7 = obje.getScore(" ");
 		
 		line1.setScore(30);

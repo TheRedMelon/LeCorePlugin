@@ -23,7 +23,19 @@ public class GetStaticVars {
 					
 					LeCorePlugin.plugin.worldAlias.put(world.getName(), name);
 					
+				} else {
+					
+					LeCorePlugin.plugin.worldAlias.put(world.getName(), Bukkit.getServerName());
+					
 				}
+				
+			}
+			
+		} else {
+			
+			for (World world : Bukkit.getServer().getWorlds()) {
+				
+				LeCorePlugin.plugin.worldAlias.put(world.getName(), Bukkit.getServerName());
 				
 			}
 			
