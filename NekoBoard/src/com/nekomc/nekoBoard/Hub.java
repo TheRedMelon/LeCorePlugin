@@ -34,7 +34,7 @@ public class Hub {
 		Score blank5 = serverObje.getScore("     ");
 		Score line2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------ ");
 		Score server1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Server:");
-		Score server2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(id).getWorld().getName()));
+		Score server2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(id).getWorld().getName())");
 		Score blank6 = serverObje.getScore("      ");
 		Score pCount1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Online Players:");
 		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));

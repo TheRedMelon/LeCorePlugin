@@ -1,12 +1,12 @@
 package com.nekomc.leCorePlugin;
 
-import java.util.HashMap;
+import java.util.Set;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nekomc.leCorePlugin.event.player.PlayerJoin;
-import com.nekomc.leCorePlugin.randomStuff.GetStaticVars;
 
 public class LeCorePlugin extends JavaPlugin {
 	
@@ -14,9 +14,6 @@ public class LeCorePlugin extends JavaPlugin {
 	
 	public int playerCount;
 	public int maxPlayers;
-	
-	public HashMap<String, String> worldAlias = new HashMap<String, String>();
-	public HashMap<String, String> worldBoards = new HashMap<String, String>();
 	
 	PluginManager pm = getServer().getPluginManager();
 	
@@ -30,8 +27,6 @@ public class LeCorePlugin extends JavaPlugin {
 		registerEvents();
 		registerConfig();
 		
-		new GetStaticVars().fromConfig();
-		
 	}
 	
 	private void registerEvents() {
@@ -44,6 +39,10 @@ public class LeCorePlugin extends JavaPlugin {
 		
 		getConfig().options().copyDefaults(true);
 		saveConfig();
+		
+		Set<String> cfs = getConfig().getConfigurationSection("world-alias").getKeys(false);
+		
+		Bukkit.getLogger().info(cfs.toString());
 		
 	}
 	
