@@ -18,7 +18,7 @@ public class PlayerJoin implements Listener {
 	@EventHandler
 	public void onPlayerJoin (PlayerJoinEvent e) {
 		
-		String board = LeCorePlugin.plugin.worldBoards.get(e.getPlayer().getWorld());
+		String board = LeCorePlugin.plugin.worldBoards.get(e.getPlayer().getWorld().getName());
 		
 		if (board.equals("Hub")) {
 			
