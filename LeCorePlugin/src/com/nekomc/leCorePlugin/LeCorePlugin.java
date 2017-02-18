@@ -16,6 +16,7 @@ public class LeCorePlugin extends JavaPlugin {
 	public int maxPlayers;
 	
 	public HashMap<String, String> worldAlias = new HashMap<String, String>();
+	public HashMap<String, String> worldBoards = new HashMap<String, String>();
 	
 	PluginManager pm = getServer().getPluginManager();
 	

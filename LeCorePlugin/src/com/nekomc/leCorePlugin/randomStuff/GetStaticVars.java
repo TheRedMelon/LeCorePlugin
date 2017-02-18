@@ -40,7 +40,23 @@ public class GetStaticVars {
 			}
 			
 		}
-		
+			
+		for (World world : Bukkit.getServer().getWorlds()) {
+			
+			if (nameAlias.contains(world.getName())) {
+				
+				String board = LeCorePlugin.plugin.getConfig().getString("world-boards." + world.getName());
+				
+				LeCorePlugin.plugin.worldBoards.put(world.getName(), board);
+				
+			} else {
+				
+				LeCorePlugin.plugin.worldAlias.put(world.getName(), "Hub");
+				
+			}
+	
+		}
+			
 	}
 	
 }
