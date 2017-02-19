@@ -3,6 +3,7 @@ package com.nekomc.nekoBoard;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,7 +14,9 @@ public class NekoBoard extends JavaPlugin {
 
 	public static NekoBoard plugin;
 	
-	public HashMap<String, Class<?>> worldBoards = new HashMap<String, Class<?>>();
+	@SuppressWarnings("rawtypes")
+	public HashMap<String, Class> worldBoards = new HashMap<String, Class>();
+	public HashMap<UUID, Object> playerBoards = new HashMap<UUID, Object>();
 	
 	PluginManager pm = getServer().getPluginManager();
 	
@@ -35,13 +38,13 @@ public class NekoBoard extends JavaPlugin {
 		Map<String, Object> boards = getConfig().getConfigurationSection("world-boards").getValues(false);
 		
 		for (String world : worlds) {
-			
+				
 			try {
 				
 				worldBoards.put(world, Class.forName("com.nekomc.nekoBoard.boards." + (String) boards.get(world)));
 				
 			} catch (ClassNotFoundException e) {
-
+				
 				e.printStackTrace();
 				
 			}
@@ -53,6 +56,7 @@ public class NekoBoard extends JavaPlugin {
 	private void registerEvents() {
 		
 		pm.registerEvents(new PlayerJoin(), this);
+		pm.registerEvents(new GeneralScoreboardUpdate(), this);
 		
 	}
 	

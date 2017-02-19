@@ -1,49 +1,37 @@
 package com.nekomc.nekoBoard.event.player;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.plugin.PluginManager;
 
 import com.nekomc.nekoBoard.NekoBoard;
-import com.nekomc.nekoBoard.boards.Hub;
+
+import customEvents.GeneralScoreboardUpdateEvent;
 
 public class PlayerJoin implements Listener {
 
+	PluginManager pm = Bukkit.getServer().getPluginManager();
+	
 	@EventHandler
 	public void onPlayerJoin (PlayerJoinEvent e) {
-		
-		Method sp = null;
-		
-		try {
-			
-			sp = NekoBoard.plugin.worldBoards.get(e.getPlayer().getWorld()).getClass().getMethod("showPlayer");
-			
-		} catch (NoSuchMethodException | SecurityException e1) {
-			
-			e1.printStackTrace();
-			
-		}
-		
-		if (sp != null) {
+				
+			Object inst = null;
 			
 			try {
 				
-				sp.invoke(NekoBoard.plugin.worldBoards.get(e.getPlayer().getWorld()), e.getPlayer().getUniqueId());
+				inst = NekoBoard.plugin.worldBoards.get(e.getPlayer().getWorld().getName()).newInstance();
 				
-			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {
+			} catch (InstantiationException | IllegalAccessException e1) {
 				
 				e1.printStackTrace();
 				
 			}
 			
-		} else {
-			
-			new Hub().showPlayer(e.getPlayer().getUniqueId());
-			
-		}
+			NekoBoard.plugin.playerBoards.put(e.getPlayer().getUniqueId(), inst);
+		
+		pm.callEvent(new GeneralScoreboardUpdateEvent());
 		
 	}
 	
