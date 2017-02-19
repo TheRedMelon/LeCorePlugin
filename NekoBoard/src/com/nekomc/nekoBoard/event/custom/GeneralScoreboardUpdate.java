@@ -1,4 +1,4 @@
-package com.nekomc.nekoBoard;
+package com.nekomc.nekoBoard.event.custom;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -8,6 +8,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+
+import com.nekomc.nekoBoard.NekoBoard;
 
 import customEvents.GeneralScoreboardUpdateEvent;
 

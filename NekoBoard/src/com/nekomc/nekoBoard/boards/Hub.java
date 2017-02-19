@@ -42,7 +42,7 @@ public class Hub {
 		Score blank6 = serverObje.getScore("      ");
 		Score pCount1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Online Players:");
 		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));
-		Score pBlank1 = serverObje.getScore(" ");
+		Score pBlank1 = serverObje.getScore("              ");
 		Score pLevel1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
 		Score pLevel2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)) + " | " + new Leveling().getProgress(id) + " Progress");
 		Score pBlank2 = serverObje.getScore("  ");

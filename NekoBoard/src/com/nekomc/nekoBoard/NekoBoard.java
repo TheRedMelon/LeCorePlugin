@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.nekomc.nekoBoard.event.custom.GeneralScoreboardUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
 
 public class NekoBoard extends JavaPlugin {
@@ -57,6 +58,7 @@ public class NekoBoard extends JavaPlugin {
 		
 		pm.registerEvents(new PlayerJoin(), this);
 		pm.registerEvents(new GeneralScoreboardUpdate(), this);
+		pm.registerEvents(new PlayerQuit(), this);
 		
 	}
 	
