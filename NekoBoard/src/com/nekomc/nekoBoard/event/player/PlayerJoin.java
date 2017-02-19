@@ -6,9 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 
+import com.nekomc.leCorePlugin.customEvents.GeneralScoreboardUpdateEvent;
 import com.nekomc.nekoBoard.NekoBoard;
-
-import customEvents.GeneralScoreboardUpdateEvent;
 
 public class PlayerJoin implements Listener {
 

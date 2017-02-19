@@ -9,9 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import com.nekomc.leCorePlugin.customEvents.GeneralScoreboardUpdateEvent;
 import com.nekomc.nekoBoard.NekoBoard;
-
-import customEvents.GeneralScoreboardUpdateEvent;
 
 public class GeneralScoreboardUpdate implements Listener {
 

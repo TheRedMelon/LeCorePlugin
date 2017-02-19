@@ -1,21 +1,18 @@
-package com.nekomc.nekoBoard;
+package com.nekomc.leCorePlugin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.PluginManager;
-
-import com.nekomc.leCorePlugin.customEvents.GeneralScoreboardUpdateEvent;
 
 public class PlayerQuit implements Listener {
 
-	PluginManager pm = Bukkit.getServer().getPluginManager();
+	LeCorePlugin plugin = LeCorePlugin.plugin;
 	
 	@EventHandler
 	public void onPlayerQuit (PlayerQuitEvent e) {
 		
-		pm.callEvent(new GeneralScoreboardUpdateEvent());
+		plugin.playerCount = Bukkit.getServer().getOnlinePlayers().size();
 		
 	}
 	

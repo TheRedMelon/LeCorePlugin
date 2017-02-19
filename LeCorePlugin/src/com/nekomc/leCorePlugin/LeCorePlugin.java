@@ -36,6 +36,7 @@ public class LeCorePlugin extends JavaPlugin {
 	private void registerEvents() {
 		
 		pm.registerEvents(new PlayerJoin(), this);
+		pm.registerEvents(new PlayerQuit(), this);
 		
 	}
 	

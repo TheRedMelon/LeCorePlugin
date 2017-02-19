@@ -1,4 +1,4 @@
-package customEvents;
+package com.nekomc.leCorePlugin.customEvents;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
