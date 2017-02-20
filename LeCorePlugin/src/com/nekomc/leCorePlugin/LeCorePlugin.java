@@ -6,6 +6,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nekomc.leCorePlugin.event.player.PlayerJoin;
+import com.nekomc.leCorePlugin.event.player.PlayerQuit;
 import com.nekomc.leCorePlugin.randomStuff.GetStaticVars;
 
 public class LeCorePlugin extends JavaPlugin {

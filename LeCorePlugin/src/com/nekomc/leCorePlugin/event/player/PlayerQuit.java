@@ -1,9 +1,10 @@
-package com.nekomc.leCorePlugin;
+package com.nekomc.leCorePlugin.event.player;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import com.nekomc.leCorePlugin.LeCorePlugin;
 
 public class PlayerQuit implements Listener {
 
@@ -12,7 +13,7 @@ public class PlayerQuit implements Listener {
 	@EventHandler
 	public void onPlayerQuit (PlayerQuitEvent e) {
 		
-		plugin.playerCount = Bukkit.getServer().getOnlinePlayers().size();
+		plugin.playerCount = plugin.playerCount - 1;
 		
 	}
 	
