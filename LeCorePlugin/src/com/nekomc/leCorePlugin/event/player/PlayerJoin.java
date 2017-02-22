@@ -1,6 +1,5 @@
 package com.nekomc.leCorePlugin.event.player;
 
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -14,7 +13,7 @@ public class PlayerJoin implements Listener {
 	@EventHandler
 	public void onPlayerJoin (PlayerJoinEvent e) {
 		
-		plugin.playerCount = Bukkit.getServer().getOnlinePlayers().size();
+		plugin.playerCount = plugin.playerCount + 1;
 		
 	}
 	

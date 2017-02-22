@@ -13,7 +13,7 @@ public class LeCorePlugin extends JavaPlugin {
 	
 	public static LeCorePlugin plugin;
 	
-	public int playerCount;
+	public int playerCount = 0;
 	public int maxPlayers;
 	
 	public HashMap<String, String> worldAlias = new HashMap<String, String>();
@@ -24,7 +24,6 @@ public class LeCorePlugin extends JavaPlugin {
 		
 		plugin = this;
 		
-		playerCount = getServer().getOnlinePlayers().size();
 		maxPlayers = getServer().getMaxPlayers();
 		
 		registerEvents();
