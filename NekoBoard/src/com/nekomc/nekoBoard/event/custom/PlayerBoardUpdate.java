@@ -25,8 +25,8 @@ public class PlayerBoardUpdate implements Listener {
 		Objective obj = Bukkit.getPlayer(e.getPlayerUniqueId()).getScoreboard().getObjective("board");
 		Scoreboard sb = Bukkit.getPlayer(e.getPlayerUniqueId()).getScoreboard();
 		
-		if (e.getBoardType() == BoardType.HUB) {	
-		
+		if (e.getBoardType() == BoardType.HUB) {
+			
 			if (e.getBoardSection() == BoardSection.MONEY) {
 				
 				Score money = null;
@@ -37,7 +37,7 @@ public class PlayerBoardUpdate implements Listener {
 					
 					for (Score s : i) {
 						
-						if (s.getObjective() == obj) {
+						if (s.getObjective().getName() == obj.getName()) {
 							
 							if (s.getScore() == 18) {
 								
@@ -63,7 +63,7 @@ public class PlayerBoardUpdate implements Listener {
 				
 				Score money2 = obj.getScore(ChatColor.LIGHT_PURPLE + "$" + Double.toString(NekoBoard.economy.getBalance(Bukkit.getPlayer(e.getPlayerUniqueId()))));
 				
-				money2.setScore(money.getScore());
+				money2.setScore(18);
 				
 			}
 			
@@ -77,7 +77,7 @@ public class PlayerBoardUpdate implements Listener {
 					
 					for (Score s : i) {
 						
-						if (s.getObjective() == obj) {
+						if (s.getObjective().getName() == obj.getName()) {
 							
 							if (s.getScore() == 15) {
 								
@@ -103,7 +103,7 @@ public class PlayerBoardUpdate implements Listener {
 				
 				Score level2 = obj.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(e.getPlayerUniqueId())) + " " + new Leveling().getProgress(e.getPlayerUniqueId()));
 				
-				level2.setScore(level.getScore());
+				level2.setScore(15);
 				
 			}
 			
@@ -117,7 +117,7 @@ public class PlayerBoardUpdate implements Listener {
 					
 					for (Score s : i) {
 						
-						if (s.getObjective() == obj) {
+						if (s.getObjective().getName() == obj.getName()) {
 							
 							if (s.getScore() == 21) {
 								
@@ -143,7 +143,7 @@ public class PlayerBoardUpdate implements Listener {
 				
 				Score server2 = obj.getScore(ChatColor.LIGHT_PURPLE + LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(e.getPlayerUniqueId()).getWorld().getName()));
 				
-				server2.setScore(server.getScore());
+				server2.setScore(21);
 				
 			}
 		
