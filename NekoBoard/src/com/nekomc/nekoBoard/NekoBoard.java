@@ -3,25 +3,24 @@ package com.nekomc.nekoBoard;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scoreboard.Objective;
-import org.bukkit.scoreboard.Scoreboard;
 
-import com.nekomc.nekoBoard.event.custom.GeneralScoreboardUpdate;
+import com.nekomc.nekoBoard.event.custom.PlayerBoardUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
+
+import net.milkbowl.vault.economy.Economy;
 
 public class NekoBoard extends JavaPlugin {
 
 	public static NekoBoard plugin;
 	
+	public static Economy economy = null;
+	
 	@SuppressWarnings("rawtypes")
 	public HashMap<String, Class> worldBoards = new HashMap<String, Class>();
-	public HashMap<UUID, Object> playerBoardClassInst = new HashMap<UUID, Object>();
-	public HashMap<UUID, Scoreboard> playerBoard = new HashMap<UUID, Scoreboard>();
-	public HashMap<UUID, Objective> playerObj = new HashMap<UUID, Objective>();
 	
 	PluginManager pm = getServer().getPluginManager();
 	
@@ -31,6 +30,10 @@ public class NekoBoard extends JavaPlugin {
 		
 		registerConfig();
 		registerEvents();
+		
+		getCommand("test").setExecutor(new Test());
+		
+		setupEconomy();
 		
 	}
 	
@@ -61,7 +64,21 @@ public class NekoBoard extends JavaPlugin {
 	private void registerEvents() {
 		
 		pm.registerEvents(new PlayerJoin(), this);
-		pm.registerEvents(new GeneralScoreboardUpdate(), this);
+		pm.registerEvents(new PlayerBoardUpdate(), this);
+		
+	}
+	
+	private boolean setupEconomy() {
+		
+		RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
+		
+		if (economyProvider != null) {
+			
+			economy = economyProvider.getProvider();
+			
+		}
+		
+		return (economyProvider != null);
 		
 	}
 	
