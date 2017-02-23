@@ -4,32 +4,15 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.scheduler.BukkitScheduler;
-import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
-import org.bukkit.scoreboard.Scoreboard;
-import org.bukkit.scoreboard.ScoreboardManager;
 
 import com.nekomc.leCorePlugin.LeCorePlugin;
 import com.nekomc.leCorePlugin.playerMisc.Leveling;
 
 public class Hub {
-
-	ScoreboardManager sbm = Bukkit.getServer().getScoreboardManager();
-	BukkitScheduler bs = Bukkit.getServer().getScheduler();
 	
-	Scoreboard serverBoard = sbm.getNewScoreboard();
-	Objective serverObje = serverBoard.registerNewObjective("server", "dummy");
-	
-	public void showPlayer (UUID id) {
-		
-		if (!(serverObje.getDisplayName() == ("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks")) || !(serverObje.getDisplaySlot().equals(DisplaySlot.SIDEBAR))) {
-		
-			serverObje.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
-			serverObje.setDisplaySlot(DisplaySlot.SIDEBAR);
-		
-		}
+	public void showPlayer (UUID id, Objective serverObje) {
 		
 		Score line1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = serverObje.getScore(" ");
@@ -41,21 +24,11 @@ public class Hub {
 		Score server2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(id).getWorld().getName()));
 		Score blank6 = serverObje.getScore("      ");
 		Score pCount1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Online Players:");
-		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));
+		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount));
 		Score pBlank1 = serverObje.getScore("              ");
 		Score pLevel1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
 		Score pLevel2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)) + " " + new Leveling().getProgress(id));
 		Score pBlank2 = serverObje.getScore("  ");
-		
-		for (String e : serverBoard.getEntries()) {
-			
-			if (serverObje.getScore(e).getScore() == 18 || serverObje.getScore(e).getScore() == 15) {
-				
-				serverBoard.resetScores(e);
-				
-			}
-			
-		}
 		
 		line1.setScore(24);
 		blank1.setScore(23);
@@ -72,12 +45,6 @@ public class Hub {
 		website2.setScore(12);
 		pBlank1.setScore(11);
 		line2.setScore(10);
-		
-		if (!Bukkit.getServer().getPlayer(id).getScoreboard().equals(serverBoard)) {
-			
-			Bukkit.getServer().getPlayer(id).setScoreboard(serverBoard);
-	
-		}
 		
 	}
 		

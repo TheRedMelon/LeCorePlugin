@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
 
 import com.nekomc.nekoBoard.event.custom.GeneralScoreboardUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
@@ -17,7 +19,9 @@ public class NekoBoard extends JavaPlugin {
 	
 	@SuppressWarnings("rawtypes")
 	public HashMap<String, Class> worldBoards = new HashMap<String, Class>();
-	public HashMap<UUID, Object> playerBoards = new HashMap<UUID, Object>();
+	public HashMap<UUID, Object> playerBoardClassInst = new HashMap<UUID, Object>();
+	public HashMap<UUID, Scoreboard> playerBoard = new HashMap<UUID, Scoreboard>();
+	public HashMap<UUID, Objective> playerObj = new HashMap<UUID, Objective>();
 	
 	PluginManager pm = getServer().getPluginManager();
 	
@@ -58,7 +62,6 @@ public class NekoBoard extends JavaPlugin {
 		
 		pm.registerEvents(new PlayerJoin(), this);
 		pm.registerEvents(new GeneralScoreboardUpdate(), this);
-		pm.registerEvents(new PlayerQuit(), this);
 		
 	}
 	

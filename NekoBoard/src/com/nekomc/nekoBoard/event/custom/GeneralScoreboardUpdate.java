@@ -36,7 +36,7 @@ public class GeneralScoreboardUpdate implements Listener {
 				
 				try {
 					
-					sp.invoke(NekoBoard.plugin.playerBoards.get(p.getUniqueId()), p.getUniqueId());
+					sp.invoke(NekoBoard.plugin.playerBoardClassInst.get(p.getUniqueId()), p.getUniqueId());
 					
 				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e1) {
 					
