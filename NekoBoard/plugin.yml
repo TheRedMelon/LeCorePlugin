@@ -3,3 +3,5 @@ main: com.nekomc.nekoBoard.NekoBoard
 version: 1.0.0
 author: [TheRedMelonYT, TheDreps]
 depend: [LeCorePlugin, Vault]
+commands:
+  test: slkjf
