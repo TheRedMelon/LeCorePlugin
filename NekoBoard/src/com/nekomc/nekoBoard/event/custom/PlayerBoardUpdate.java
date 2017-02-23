@@ -1,5 +1,6 @@
 package com.nekomc.nekoBoard.event.custom;
 
+import java.text.DecimalFormat;
 import java.util.Set;
 
 import org.bukkit.Bukkit;
@@ -25,9 +26,12 @@ public class PlayerBoardUpdate implements Listener {
 		Objective obj = Bukkit.getPlayer(e.getPlayerUniqueId()).getScoreboard().getObjective("board");
 		Scoreboard sb = Bukkit.getPlayer(e.getPlayerUniqueId()).getScoreboard();
 		
-		if (e.getBoardType() == BoardType.HUB) {
+		if (e.getBoardType() == BoardType.HUB && obj.getName().equals(BoardType.HUB.getType())) {
 			
 			if (e.getBoardSection() == BoardSection.MONEY) {
+				
+				Double bal = NekoBoard.economy.getBalance(Bukkit.getPlayer(e.getPlayerUniqueId()));
+				DecimalFormat df = new DecimalFormat("#.00");
 				
 				Score money = null;
 				
@@ -61,7 +65,7 @@ public class PlayerBoardUpdate implements Listener {
 					
 				}
 				
-				Score money2 = obj.getScore(ChatColor.LIGHT_PURPLE + "$" + Double.toString(NekoBoard.economy.getBalance(Bukkit.getPlayer(e.getPlayerUniqueId()))));
+				Score money2 = obj.getScore(ChatColor.LIGHT_PURPLE + "$" + df.format(bal));
 				
 				money2.setScore(18);
 				

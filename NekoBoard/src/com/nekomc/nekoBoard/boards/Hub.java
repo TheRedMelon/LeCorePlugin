@@ -1,5 +1,6 @@
 package com.nekomc.nekoBoard.boards;
 
+import java.text.DecimalFormat;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -19,6 +20,9 @@ public class Hub {
 	
 	public void showPlayer (UUID id, Objective serverObje) {
 		
+		Double money = NekoBoard.economy.getBalance(Bukkit.getPlayer(id));
+		DecimalFormat df = new DecimalFormat("#.00");
+		
 		Score line1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = serverObje.getScore(" ");
 		Score website1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Website:");
@@ -29,7 +33,7 @@ public class Hub {
 		server2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + LeCorePlugin.plugin.worldAlias.get(Bukkit.getPlayer(id).getWorld().getName()));
 		Score blank6 = serverObje.getScore("      ");
 		Score pCount1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Money:");
-		pMoney2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "$" + Double.toString(NekoBoard.economy.getBalance(Bukkit.getPlayer(id))));
+		pMoney2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "$" + df.format(money));
 		Score pBlank1 = serverObje.getScore("              ");
 		Score pLevel1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Level:");
 		pLevel2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(new Leveling().getLevel(id)) + " " + new Leveling().getProgress(id));

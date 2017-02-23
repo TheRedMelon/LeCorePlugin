@@ -2,7 +2,7 @@ package com.nekomc.leCorePlugin.randomStuff;
 
 public enum BoardType {
 
-	HUB("hub");
+	HUB("Hub");
 	
 	private final String boardType;
 	

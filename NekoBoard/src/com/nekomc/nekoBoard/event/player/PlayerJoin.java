@@ -37,7 +37,7 @@ public class PlayerJoin implements Listener {
 		}
 			
 		Scoreboard sb = sbm.getNewScoreboard();
-		Objective obj = sb.registerNewObjective("board", "dummy");
+		Objective obj = sb.registerNewObjective(NekoBoard.plugin.worldBoards.get(e.getPlayer().getWorld().getName()).getSimpleName(), "dummy");
 			
 		obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
