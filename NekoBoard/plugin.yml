@@ -4,4 +4,5 @@ version: 1.0.0
 author: [TheRedMelonYT, TheDreps]
 depend: [LeCorePlugin, Vault]
 commands:
-  test: slkjf
+  test:
+    description: asdkjf
