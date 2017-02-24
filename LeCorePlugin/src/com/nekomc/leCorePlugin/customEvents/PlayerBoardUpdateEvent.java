@@ -6,18 +6,15 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 import com.nekomc.leCorePlugin.randomStuff.BoardSection;
-import com.nekomc.leCorePlugin.randomStuff.BoardType;
 
 public class PlayerBoardUpdateEvent extends Event {
 	
 	UUID id;
-	BoardType boardType;
 	BoardSection boardSection;
 	
-	public PlayerBoardUpdateEvent(UUID uuid, BoardType bType, BoardSection bSection) {
+	public PlayerBoardUpdateEvent(UUID uuid, BoardSection bSection) {
 		
 		id = uuid;
-		boardType = bType;
 		boardSection = bSection;
 		
 	}
@@ -25,12 +22,6 @@ public class PlayerBoardUpdateEvent extends Event {
 	public UUID getPlayerUniqueId() {
 		
 		return id;
-		
-	}
-	
-	public BoardType getBoardType() {
-		
-		return boardType;
 		
 	}
 	

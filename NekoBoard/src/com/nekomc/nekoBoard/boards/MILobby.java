@@ -12,7 +12,7 @@ import com.nekomc.leCorePlugin.LeCorePlugin;
 import com.nekomc.leCorePlugin.playerMisc.Leveling;
 import com.nekomc.nekoBoard.NekoBoard;
 
-public class Hub {
+public class MILobby {
 	
 	public void showPlayer (UUID id, Objective serverObje) {
 		
@@ -21,8 +21,8 @@ public class Hub {
 		
 		Score line1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = serverObje.getScore(" ");
-		Score website1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Website:");
-		Score website2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "www.nekomc.com");
+		Score pCount1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Players");
+		Score pCount2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + Integer.toString(LeCorePlugin.plugin.playerCount) + "/" + Integer.toString(LeCorePlugin.plugin.maxPlayers));
 		Score blank5 = serverObje.getScore("     ");
 		Score line2 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------ ");
 		Score server1 = serverObje.getScore("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Server:");
@@ -39,18 +39,18 @@ public class Hub {
 		blank1.setScore(23);
 		server1.setScore(22);
 		server2.setScore(21);
-		blank5.setScore(20);
-		pMoney1.setScore(19);
-		pMoney2.setScore(18);
-		blank6.setScore(17);
-		pLevel1.setScore(16);
-		pLevel2.setScore(15);
-		pBlank2.setScore(14);
-		website1.setScore(13);
-		website2.setScore(12);
-		pBlank1.setScore(11);
+		pBlank1.setScore(20);
+		pCount1.setScore(19);
+		pCount2.setScore(18);
+		blank5.setScore(17);
+		pMoney1.setScore(16);
+		pMoney2.setScore(15);
+		blank6.setScore(14);
+		pLevel1.setScore(13);
+		pLevel2.setScore(12);
+		pBlank2.setScore(11);
 		line2.setScore(10);
 		
 	}
-	
+		
 }

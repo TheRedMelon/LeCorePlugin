@@ -2,7 +2,7 @@ package com.nekomc.leCorePlugin.randomStuff;
 
 public enum BoardSection {
 
-	SERVER("server"), MONEY("money"), LEVEL("level");
+	SERVER("server"), MONEY("money"), LEVEL("level"), PLAYERCOUNT("player count");
 	
 	private final String boardSection;
 	

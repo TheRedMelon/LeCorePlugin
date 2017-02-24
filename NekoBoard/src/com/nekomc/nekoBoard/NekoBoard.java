@@ -11,6 +11,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nekomc.nekoBoard.boards.Hub;
+import com.nekomc.nekoBoard.commands.Update;
 import com.nekomc.nekoBoard.event.custom.PlayerBoardUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
 
@@ -33,10 +34,15 @@ public class NekoBoard extends JavaPlugin {
 		
 		registerConfig();
 		registerEvents();
-		
-		getCommand("test").setExecutor(new Test());
+		registerCommands();
 		
 		setupEconomy();
+		
+	}
+	
+	private void registerCommands() {
+		
+		getCommand("update").setExecutor(new Update());
 		
 	}
 	
