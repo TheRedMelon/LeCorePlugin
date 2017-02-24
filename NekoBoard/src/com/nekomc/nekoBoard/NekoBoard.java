@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.nekomc.nekoBoard.boards.Hub;
 import com.nekomc.nekoBoard.event.custom.PlayerBoardUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
 
@@ -42,23 +45,43 @@ public class NekoBoard extends JavaPlugin {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		
-		Set<String> worlds = getConfig().getConfigurationSection("world-boards").getKeys(false);
-		Map<String, Object> boards = getConfig().getConfigurationSection("world-boards").getValues(false);
+		try {
+			
+			Set<String> worlds = getConfig().getConfigurationSection("world-boards").getKeys(false);
+			Map<String, Object> boards = getConfig().getConfigurationSection("world-boards").getValues(false);
 		
-		for (String world : worlds) {
-				
-			try {
-				
-				worldBoards.put(world, Class.forName("com.nekomc.nekoBoard.boards." + (String) boards.get(world)));
-				
-			} catch (ClassNotFoundException e) {
-				
-				e.printStackTrace();
-				
+			for (World w : Bukkit.getWorlds()) {
+			
+				if (worlds.contains(w.getName())) {
+						
+					try {
+						
+						worldBoards.put(w.getName(), Class.forName("com.nekomc.nekoBoard.boards." + (String) boards.get(w.getName())));
+						
+					} catch (ClassNotFoundException e) {
+						
+						e.printStackTrace();
+						
+					}
+					
+				} else {
+					
+					worldBoards.put(w.getName(), new Hub().getClass());
+					
+				}
+			
 			}
 			
-		}
+		} catch (NullPointerException e) {
+			
+			for (World world : Bukkit.getServer().getWorlds()) {
+				
+				worldBoards.put(world.getName(), new Hub().getClass());
+				
+			}
 		
+		}
+			
 	}
 	
 	private void registerEvents() {

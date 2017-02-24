@@ -12,15 +12,7 @@ public class GetStaticVars {
 
 	public void fromConfig() {
 		
-		if (LeCorePlugin.plugin.getConfig().getConfigurationSection("world-alias").getKeys(false) == null) {
-			
-			for (World w : Bukkit.getServer().getWorlds()) {
-				
-				LeCorePlugin.plugin.worldAlias.put(w.getName(), Bukkit.getServer().getName());
-				
-			}
-			
-		} else {
+		try {
 			
 			Set<String> keys = LeCorePlugin.plugin.getConfig().getConfigurationSection("world-alias").getKeys(false);
 			Map<String, Object> valueMap = LeCorePlugin.plugin.getConfig().getConfigurationSection("world-alias").getValues(false);
@@ -39,6 +31,14 @@ public class GetStaticVars {
 				
 			}
 			
+		} catch (NullPointerException e) {
+			
+			for (World w : Bukkit.getServer().getWorlds()) {
+				
+				LeCorePlugin.plugin.worldAlias.put(w.getName(), Bukkit.getServer().getName());
+				
+			}
+		
 		}
 		
 	}

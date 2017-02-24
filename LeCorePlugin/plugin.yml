@@ -2,3 +2,4 @@ name: LeCorePlugin
 main: com.nekomc.leCorePlugin.LeCorePlugin
 version: 1.0.0
 author: [TheRedMelonYT, TheDreps]
+softdepend: [Multiverse-Core]
