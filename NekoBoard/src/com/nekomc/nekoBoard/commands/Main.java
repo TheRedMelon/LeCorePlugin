@@ -11,6 +11,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.scoreboard.ScoreboardManager;
 
 import com.nekomc.leCorePlugin.customEvents.PlayerBoardUpdateEvent;
 import com.nekomc.leCorePlugin.randomStuff.BoardSection;
@@ -18,13 +19,14 @@ import com.nekomc.leCorePlugin.randomStuff.BoardSection;
 public class Main implements CommandExecutor {
 
 	PluginManager pm = Bukkit.getPluginManager();
+	ScoreboardManager sbm = Bukkit.getScoreboardManager();
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
 		if (args.length < 1) {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm update [player | section] [section] [section]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		} else if (args[0].equalsIgnoreCase("update")) {
@@ -171,9 +173,32 @@ public class Main implements CommandExecutor {
 				
 			}
 		
+		} else if (args[0].equals("hide")) {
+			
+			if (args.length == 2) {
+				
+				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
+					
+					p.setScoreboard(sbm.getMainScoreboard());
+					
+				}
+				
+			} else if (args.length == 3) {
+				
+				Player p = Bukkit.getPlayerExact(args[2]);
+				
+				p.setScoreboard(sbm.getMainScoreboard());
+				
+			} else {
+				
+				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
+				return false;
+				
+			}
+			
 		} else {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm update [player | section] [section] [section]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		}
