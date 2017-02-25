@@ -5,5 +5,5 @@ author: [TheRedMelonYT, TheDreps]
 depend: [LeCorePlugin, Vault]
 softdepend: [Multiverse-Core]
 commands:
-  test:
+  update:
     description: asdkjf
