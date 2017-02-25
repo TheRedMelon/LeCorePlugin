@@ -120,7 +120,7 @@ public class Update implements CommandExecutor {
 					
 					try {
 					
-						pm.callEvent(new PlayerBoardUpdateEvent(p.getUniqueId(), BoardSection.valueOf(str)));
+						pm.callEvent(new PlayerBoardUpdateEvent(p.getUniqueId(), BoardSection.valueOf(str.toUpperCase())));
 					
 					} catch (IllegalArgumentException e) {
 						
