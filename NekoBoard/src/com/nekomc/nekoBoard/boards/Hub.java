@@ -17,7 +17,7 @@ public class Hub {
 	public void showPlayer (UUID id, Objective serverObje) {
 		
 		Double money = NekoBoard.economy.getBalance(Bukkit.getPlayer(id));
-		DecimalFormat df = new DecimalFormat("#.00");
+		DecimalFormat df = new DecimalFormat("#0.00");
 		
 		Score line1 = serverObje.getScore(ChatColor.LIGHT_PURPLE + "------------------");
 		Score blank1 = serverObje.getScore(" ");

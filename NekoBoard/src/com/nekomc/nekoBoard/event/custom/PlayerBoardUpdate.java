@@ -31,7 +31,7 @@ public class PlayerBoardUpdate implements Listener {
 			if (e.getBoardSection() == BoardSection.MONEY) {
 				
 				Double bal = NekoBoard.economy.getBalance(Bukkit.getPlayer(e.getPlayerUniqueId()));
-				DecimalFormat df = new DecimalFormat("#.00");
+				DecimalFormat df = new DecimalFormat("#0.00");
 				
 				Score money = null;
 				

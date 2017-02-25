@@ -35,7 +35,7 @@ public class Main implements CommandExecutor {
 		
 		if (args.length < 1) {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide | show> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		} else if (args[0].equalsIgnoreCase("update")) {
@@ -194,13 +194,13 @@ public class Main implements CommandExecutor {
 				
 			} else if (args.length == 2) {
 				
-				Player p = Bukkit.getPlayerExact(args[2]);
+				Player p = Bukkit.getPlayerExact(args[1]);
 				
 				p.setScoreboard(sbm.getMainScoreboard());
 				
 			} else {
 				
-				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
+				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide | show> [player | section | board] [section | board] [section | board]...");
 				return false;
 				
 			}
@@ -228,7 +228,6 @@ public class Main implements CommandExecutor {
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
 					obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-					p.setScoreboard(sb);
 					
 					Method sp = null;
 					
@@ -256,6 +255,8 @@ public class Main implements CommandExecutor {
 						
 					}
 					
+					p.setScoreboard(sb);
+					
 				}
 				
 			} else if (args.length == 2) {
@@ -280,7 +281,6 @@ public class Main implements CommandExecutor {
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
 					obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-					p.setScoreboard(sb);
 					
 					Method sp = null;
 					
@@ -307,6 +307,8 @@ public class Main implements CommandExecutor {
 						}
 						
 					}
+					
+					p.setScoreboard(sb);
 					
 				} else {
 					
@@ -374,6 +376,8 @@ public class Main implements CommandExecutor {
 							
 						}
 						
+						p.setScoreboard(sb);
+						
 					}
 					
 				}
@@ -417,7 +421,6 @@ public class Main implements CommandExecutor {
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
 					obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-					p.setScoreboard(sb);
 					
 					Method sp = null;
 					
@@ -445,23 +448,25 @@ public class Main implements CommandExecutor {
 						
 					}
 					
+					p.setScoreboard(sb);
+					
 				} else {
 					
-					sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
+					sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide | show> [player | section | board] [section | board] [section | board]...");
 					return false;
 					
 				}
 				
 			} else {
 				
-				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
+				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide | show> [player | section | board] [section | board] [section | board]...");
 				return false;
 				
 			}
 			
 		} else {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide | show> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		}

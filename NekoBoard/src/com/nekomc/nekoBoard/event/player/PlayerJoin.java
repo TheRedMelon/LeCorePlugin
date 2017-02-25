@@ -41,7 +41,6 @@ public class PlayerJoin implements Listener {
 			
 		obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
 		obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-		e.getPlayer().setScoreboard(sb);
 		
 		Method sp = null;
 		
@@ -68,6 +67,8 @@ public class PlayerJoin implements Listener {
 			}
 			
 		}
+		
+		e.getPlayer().setScoreboard(sb);
 			
 	}
 	
