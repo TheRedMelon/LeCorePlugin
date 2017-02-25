@@ -26,7 +26,7 @@ public class Main implements CommandExecutor {
 		
 		if (args.length < 1) {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		} else if (args[0].equalsIgnoreCase("update")) {
@@ -175,7 +175,7 @@ public class Main implements CommandExecutor {
 		
 		} else if (args[0].equals("hide")) {
 			
-			if (args.length == 2) {
+			if (args.length == 1) {
 				
 				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
 					
@@ -183,7 +183,7 @@ public class Main implements CommandExecutor {
 					
 				}
 				
-			} else if (args.length == 3) {
+			} else if (args.length == 2) {
 				
 				Player p = Bukkit.getPlayerExact(args[2]);
 				
@@ -191,14 +191,14 @@ public class Main implements CommandExecutor {
 				
 			} else {
 				
-				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
+				sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
 				return false;
 				
 			}
 			
 		} else {
 			
-			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nm <update | hide> [player | section | board] [section | board] [section | board]...");
+			sender.sendMessage(ChatColor.DARK_RED + "Incorrect Usage: /nb <update | hide> [player | section | board] [section | board] [section | board]...");
 			return false;
 			
 		}
