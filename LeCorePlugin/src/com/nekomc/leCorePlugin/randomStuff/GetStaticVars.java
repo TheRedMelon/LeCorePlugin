@@ -35,7 +35,7 @@ public class GetStaticVars {
 			
 			for (World w : Bukkit.getServer().getWorlds()) {
 				
-				LeCorePlugin.plugin.worldAlias.put(w.getName(), Bukkit.getServer().getName());
+				LeCorePlugin.plugin.worldAlias.put(w.getName(), Bukkit.getServer().getServerName());
 				
 			}
 		
