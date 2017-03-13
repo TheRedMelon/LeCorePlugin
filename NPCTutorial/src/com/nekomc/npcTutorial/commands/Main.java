@@ -15,7 +15,7 @@ public class Main implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		if (args.length <= 0 || args.length >= 2) {
+		if (args.length <= 0 || args.length >= 3) {
 			
 			sendHelp(sender);
 			return false;
@@ -25,28 +25,32 @@ public class Main implements CommandExecutor {
 			sendHelp(sender);
 			return false;
 			
-		} else if (args[0].equalsIgnoreCase("createtutorial") && args.length == 2) {
+		} else if (args[0].equalsIgnoreCase("setup") && args.length == 3) {
 			
-			if (!NPCTutorial.plugin.tutSetup.containsKey(sender.getName())) {
-				
-				if (!(NPCTutorial.plugin.tuts.contains(args[1]))) {
+			} else if (args[1].equalsIgnoreCase("createtutorial")) {
+			
+				if (!NPCTutorial.plugin.tutSetup.containsKey(sender.getName())) {
 					
-					List<Object> newList = new ArrayList<Object>();
-					newList.add(args[1]);
-					
-					NPCTutorial.plugin.tutSetup.put(sender.getName(), newList);
+					if (!(NPCTutorial.plugin.tuts.contains(args[2]))) {
+						
+						List<Object> newList = new ArrayList<Object>();
+						newList.add(args[2]);
+						
+						NPCTutorial.plugin.tutSetup.put(sender.getName(), newList);
+						
+					} else {
+						
+						sender.sendMessage(ChatColor.RED + "There is already a tutorial with that name or it is still being made!");
+						return false;
+						
+					}
 					
 				} else {
 					
-					sender.sendMessage(ChatColor.RED + "There is already a tutorial with that name or it is still being made!");
+					sender.sendMessage(ChatColor.RED + "You are already creating a tutorial, it is named '" + NPCTutorial.plugin.tutSetup.get(sender.getName()).get(0) + "'!");
 					return false;
 					
 				}
-				
-			} else {
-				
-				sender.sendMessage(ChatColor.RED + "You are already creating a tutorial, it is named '" + NPCTutorial.plugin.tutSetup.get(sender.getName()).get(0) + "'!");
-				return false;
 				
 			}
 			

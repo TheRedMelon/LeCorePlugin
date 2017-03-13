@@ -2,3 +2,7 @@ name: NPCTutorial
 main: com.nekomc.npcTutorial.NPCTutorial
 version: 1.0.0
 author: [TheRedMelon, TheDreps]
+commands:
+  npctutorial:
+    description: All admin commands (will show help)
+    alias: [npctut, nt]
