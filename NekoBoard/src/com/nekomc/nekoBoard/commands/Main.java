@@ -18,7 +18,6 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
 
 import com.nekomc.leCorePlugin.customEvents.PlayerBoardUpdateEvent;
 import com.nekomc.leCorePlugin.randomStuff.BoardSection;
@@ -225,10 +224,6 @@ public class Main implements CommandExecutor {
 					}
 					
 					Scoreboard sb = sbm.getNewScoreboard();
-					Team playerTeam = sbm.getMainScoreboard().getEntryTeam(p.getName());
-					Team newTeam = sb.registerNewTeam("newTeam");
-					newTeam.setPrefix(playerTeam.getPrefix());
-					newTeam.addEntry(p.getName());
 					Objective obj = sb.registerNewObjective(inst.getClass().getSimpleName(), "dummy");
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
@@ -282,10 +277,6 @@ public class Main implements CommandExecutor {
 					}
 					
 					Scoreboard sb = sbm.getNewScoreboard();
-					Team playerTeam = sbm.getMainScoreboard().getEntryTeam(p.getName());
-					Team newTeam = sb.registerNewTeam("newTeam");
-					newTeam.setPrefix(playerTeam.getPrefix());
-					newTeam.addEntry(p.getName());
 					Objective obj = sb.registerNewObjective(inst.getClass().getSimpleName(), "dummy");
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
@@ -354,10 +345,6 @@ public class Main implements CommandExecutor {
 						}
 						
 						Scoreboard sb = sbm.getNewScoreboard();
-						Team playerTeam = sbm.getMainScoreboard().getEntryTeam(p.getName());
-						Team newTeam = sb.registerNewTeam("newTeam");
-						newTeam.setPrefix(playerTeam.getPrefix());
-						newTeam.addEntry(p.getName());
 						Objective obj = sb.registerNewObjective(c.getSimpleName(), "dummy");
 						
 						obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");
@@ -430,10 +417,6 @@ public class Main implements CommandExecutor {
 					}
 					
 					Scoreboard sb = sbm.getNewScoreboard();
-					Team playerTeam = sbm.getMainScoreboard().getEntryTeam(p.getName());
-					Team newTeam = sb.registerNewTeam("newTeam");
-					newTeam.setPrefix(playerTeam.getPrefix());
-					newTeam.addEntry(p.getName());
 					Objective obj = sb.registerNewObjective(c.getSimpleName(), "dummy");
 					
 					obj.setDisplayName("" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "NekoMC Networks");

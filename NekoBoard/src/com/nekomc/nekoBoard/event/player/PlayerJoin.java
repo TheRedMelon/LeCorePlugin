@@ -13,7 +13,6 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
-import org.bukkit.scoreboard.Team;
 
 import com.nekomc.nekoBoard.NekoBoard;
 
@@ -38,10 +37,6 @@ public class PlayerJoin implements Listener {
 		}
 		
 		Scoreboard sb = sbm.getNewScoreboard();
-		Team playerTeam = sbm.getMainScoreboard().getEntryTeam(e.getPlayer().getName());
-		Team newTeam = sb.registerNewTeam("newTeam");
-		newTeam.setPrefix(playerTeam.getPrefix());
-		newTeam.addEntry(e.getPlayer().getName());
 		
 		Objective obj = sb.registerNewObjective(inst.getClass().getSimpleName(), "dummy");
 			
