@@ -40,6 +40,16 @@ public class NekoBoard extends JavaPlugin {
 		
 	}
 	
+	private void teamChanges() {
+	
+		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+		
+			
+			
+		}, 0L, 1L);
+		
+	}
+	
 	private void registerCommands() {
 		
 		getCommand("nb").setExecutor(new Main());
@@ -47,7 +57,7 @@ public class NekoBoard extends JavaPlugin {
 	}
 	
 	private void registerConfig() {
-		
+	
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 		
@@ -60,6 +70,7 @@ public class NekoBoard extends JavaPlugin {
 			
 				if (worlds.contains(w.getName())) {
 						
+
 					try {
 						
 						worldBoards.put(w.getName(), Class.forName("com.nekomc.nekoBoard.boards." + (String) boards.get(w.getName())));
