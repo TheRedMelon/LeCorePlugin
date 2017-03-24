@@ -1,6 +1,8 @@
 package com.nekomc.nekoBoard;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,10 +11,14 @@ import org.bukkit.World;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.ScoreboardManager;
+import org.bukkit.scoreboard.Team;
 
+import com.nekomc.leCorePlugin.customEvents.ScoreboardTeamsUpdateEvent;
 import com.nekomc.nekoBoard.boards.Hub;
 import com.nekomc.nekoBoard.commands.Main;
 import com.nekomc.nekoBoard.event.custom.PlayerBoardUpdate;
+import com.nekomc.nekoBoard.event.custom.ScoreboardTeamUpdate;
 import com.nekomc.nekoBoard.event.player.PlayerJoin;
 
 import net.milkbowl.vault.economy.Economy;
@@ -20,13 +26,15 @@ import net.milkbowl.vault.economy.Economy;
 public class NekoBoard extends JavaPlugin {
 
 	public static NekoBoard plugin;
-	
+
 	public static Economy economy = null;
 	
 	@SuppressWarnings("rawtypes")
 	public HashMap<String, Class> worldBoards = new HashMap<String, Class>();
+	private HashMap<Team, Set<String>> teamPlayers = new HashMap<Team, Set<String>>();
 	
 	PluginManager pm = getServer().getPluginManager();
+	ScoreboardManager sbm = getServer().getScoreboardManager();
 	
 	public void onEnable() {
 		
@@ -38,13 +46,40 @@ public class NekoBoard extends JavaPlugin {
 		
 		setupEconomy();
 		
+		teamChanges();
+		
 	}
 	
 	private void teamChanges() {
 	
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-		
-			
+
+			@Override
+			public void run() {
+				
+				for (Team t : sbm.getMainScoreboard().getTeams()) {
+					
+					if (!teamPlayers.get(t).equals(t.getEntries())) {
+						
+						List<Object> savedPlayers = Arrays.asList(teamPlayers.get(t).toArray().clone());
+						List<Object> currentPlayers = Arrays.asList(t.getEntries().toArray().clone());
+						
+						if (savedPlayers.size() < currentPlayers.size()) {
+							
+							savedPlayers.removeAll(currentPlayers);
+							
+							pm.callEvent(new ScoreboardTeamsUpdateEvent(t, (String) savedPlayers.get(0)));
+							
+							teamPlayers.put(t, t.getEntries());
+							break;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
 			
 		}, 0L, 1L);
 		
@@ -105,6 +140,7 @@ public class NekoBoard extends JavaPlugin {
 		
 		pm.registerEvents(new PlayerJoin(), this);
 		pm.registerEvents(new PlayerBoardUpdate(), this);
+		pm.registerEvents(new ScoreboardTeamUpdate(), this);
 		
 	}
 	
