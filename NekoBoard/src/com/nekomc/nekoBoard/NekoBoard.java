@@ -57,20 +57,36 @@ public class NekoBoard extends JavaPlugin {
 			@Override
 			public void run() {
 				
+				Bukkit.getLogger().info(sbm.getMainScoreboard().getTeams().toString());
+				
 				for (Team t : sbm.getMainScoreboard().getTeams()) {
 					
+					Bukkit.getLogger().info("1) Loop");
+					Bukkit.getLogger().info(teamPlayers.get(t).toString());
+					
 					if (!teamPlayers.get(t).equals(t.getEntries())) {
+						
+						Bukkit.getLogger().info("2) If");
 						
 						List<Object> savedPlayers = Arrays.asList(teamPlayers.get(t).toArray().clone());
 						List<Object> currentPlayers = Arrays.asList(t.getEntries().toArray().clone());
 						
+						Bukkit.getLogger().info(savedPlayers.toString());
+						Bukkit.getLogger().info(currentPlayers.toString());
+						
 						if (savedPlayers.size() < currentPlayers.size()) {
 							
+							Bukkit.getLogger().info("3) If #2");
+							
 							savedPlayers.removeAll(currentPlayers);
+							
+							Bukkit.getLogger().info(savedPlayers.toString());
 							
 							pm.callEvent(new ScoreboardTeamsUpdateEvent(t, (String) savedPlayers.get(0)));
 							
 							teamPlayers.put(t, t.getEntries());
+							
+							Bukkit.getLogger().info(teamPlayers.get(t).toString());
 							break;
 							
 						}
