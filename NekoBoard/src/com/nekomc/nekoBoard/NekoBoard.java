@@ -34,11 +34,24 @@ public class NekoBoard extends JavaPlugin {
 	private HashMap<Team, Set<String>> teamPlayers = new HashMap<Team, Set<String>>();
 	
 	PluginManager pm = getServer().getPluginManager();
-	ScoreboardManager sbm = getServer().getScoreboardManager();
+	ScoreboardManager sbm;
 	
 	public void onEnable() {
 		
 		plugin = this;
+		
+		getServer().getScheduler().runTask(this, new Runnable() {
+
+			@Override
+			public void run() {
+				
+				sbm = getServer().getScoreboardManager();
+				
+				teamChanges();
+				
+			}
+			
+		});
 		
 		registerConfig();
 		registerEvents();
@@ -46,23 +59,24 @@ public class NekoBoard extends JavaPlugin {
 		
 		setupEconomy();
 		
-		teamChanges();
-		
 	}
 	
 	private void teamChanges() {
 	
+		for (Team t : sbm.getMainScoreboard().getTeams()) {
+			
+			teamPlayers.put(t, t.getEntries());
+			
+		}
+		
 		getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-
+		
 			@Override
 			public void run() {
-				
-				Bukkit.getLogger().info(sbm.getMainScoreboard().getTeams().toString());
 				
 				for (Team t : sbm.getMainScoreboard().getTeams()) {
 					
 					Bukkit.getLogger().info("1) Loop");
-					Bukkit.getLogger().info(teamPlayers.get(t).toString());
 					
 					if (!teamPlayers.get(t).equals(t.getEntries())) {
 						
