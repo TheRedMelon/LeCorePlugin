@@ -44,7 +44,7 @@ public class NekoBoard extends JavaPlugin {
 
 			@Override
 			public void run() {
-				
+					
 				sbm = getServer().getScoreboardManager();
 				
 				teamChanges();
@@ -88,7 +88,7 @@ public class NekoBoard extends JavaPlugin {
 						Bukkit.getLogger().info(savedPlayers.toString());
 						Bukkit.getLogger().info(currentPlayers.toString());
 						
-						if (savedPlayers.size() < currentPlayers.size()) {
+						if (savedPlayers.size() > currentPlayers.size()) {
 							
 							Bukkit.getLogger().info("3) If #2");
 							
@@ -101,7 +101,6 @@ public class NekoBoard extends JavaPlugin {
 							teamPlayers.put(t, t.getEntries());
 							
 							Bukkit.getLogger().info(teamPlayers.get(t).toString());
-							break;
 							
 						}
 						
