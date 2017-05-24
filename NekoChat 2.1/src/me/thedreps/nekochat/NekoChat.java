@@ -3,6 +3,8 @@ package me.thedreps.nekochat;
 import java.io.File;
 import java.io.IOException;
 
+import com.huskehhh.mysql.mysql.*;
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +21,9 @@ import me.thedreps.nekochat.events.PlayerQuit;
 public class NekoChat extends JavaPlugin{
 	
 	public static NekoChat plugin;
+	
+	MySQL MySQL = new MySQL(plugin, "host.name", "port", "database", "user", "pass");
+	Connection c = null;
 	
 	public void onEnable(){
 		registerConfig();
