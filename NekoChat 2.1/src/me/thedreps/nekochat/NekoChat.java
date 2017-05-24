@@ -2,6 +2,8 @@ package me.thedreps.nekochat;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import com.huskehhh.mysql.mysql.*;
 
@@ -22,13 +24,21 @@ public class NekoChat extends JavaPlugin{
 	
 	public static NekoChat plugin;
 	
-	MySQL MySQL = new MySQL(plugin, "host.name", "port", "database", "user", "pass");
+	MySQL MySQL = new MySQL("nekomc.com", "3306", "nekomcco_nicknames", "nekomcco_nickn", "tv&$hyBT!iyg");
 	Connection c = null;
 	
 	public void onEnable(){
 		registerConfig();
 		registerEvents();
 		registerCommands();
+		
+		try {
+			c = MySQL.openConnection();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		plugin = this;
 	}
