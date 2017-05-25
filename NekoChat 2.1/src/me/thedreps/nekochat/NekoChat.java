@@ -2,12 +2,6 @@ package me.thedreps.nekochat;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import com.huskehhh.mysql.mysql.*;
-
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -105,6 +99,6 @@ public class NekoChat extends JavaPlugin{
     
     ///// SQL /////
     
-    Statement statement = c.createStatement();
+
 
 }
