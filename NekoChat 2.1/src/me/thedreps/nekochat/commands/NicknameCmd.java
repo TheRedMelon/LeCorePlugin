@@ -6,12 +6,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.thedreps.nekochat.NekoChat;
+import me.thedreps.nekochat.Nicknames;
 
-public class Nickname implements CommandExecutor {
+public class NicknameCmd implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
+		
+		Nicknames nicknames = new Nicknames();
 		String prefix = ChatColor.DARK_PURPLE + "Chat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 
 		if (!(sender instanceof Player)) {
@@ -29,8 +30,6 @@ public class Nickname implements CommandExecutor {
 			
 			
 			Player p = (Player) sender;
-			String uuid = p.getUniqueId().toString();
-			
 			
 			
 			if(args[0].length() > 16){
@@ -39,8 +38,7 @@ public class Nickname implements CommandExecutor {
 			}
 			
 			
-			NekoChat.plugin.getNicknameConfig().set(uuid, args[0]);
-			NekoChat.plugin.saveNicknames();
+			nicknames.setNickname(p.getUniqueId().toString(), args[0]);
 			
 			
 			

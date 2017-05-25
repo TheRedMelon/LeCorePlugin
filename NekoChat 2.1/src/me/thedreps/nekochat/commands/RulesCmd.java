@@ -13,7 +13,7 @@ import me.thedreps.nekochat.NekoChat;
 import net.minecraft.server.v1_12_R1.IChatBaseComponent.ChatSerializer;
 import net.minecraft.server.v1_12_R1.PacketPlayOutChat;
 
-public class Rules implements CommandExecutor{
+public class RulesCmd implements CommandExecutor{
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
