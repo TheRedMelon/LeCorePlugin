@@ -1,0 +1,11 @@
+name: NekoSpawn
+main: me.thedreps.nekospawn.NekoSpawn
+author: TheDreps
+version: 1.0
+description: Manages spawn.
+website: www.nekomc.com
+commands:
+  spawn:
+    description:  TP to spawn.
+  setspawn:
+    description: Set spawn!
