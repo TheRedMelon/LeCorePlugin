@@ -9,7 +9,7 @@ public class Nicknames {
 	public String getNickname(String uuid){
 		
 		try{
-			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "';");
+			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
 			
 			
 			if(!res.next()){
@@ -37,11 +37,11 @@ public class Nicknames {
 		
 		try{
 			
-			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "';");
+			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
 			if(!res.next()){
-				NekoChat.c.createStatement().executeQuery("INSERT INTO `nicknames` (`uuid`,`nickname`) VALUES ('" + uuid + "','" + name +"');");
+				NekoChat.c.createStatement().executeUpdate("INSERT INTO `nicknames` (`uuid`,`nickname`) VALUES ('" + uuid + "','" + name +"')");
 			}else{
-				NekoChat.c.createStatement().executeUpdate("UPDATE `nicknames` SET `nickname`='" + name + "' WHERE `uuid`='" + uuid + "';");
+				NekoChat.c.createStatement().executeUpdate("UPDATE `nicknames` SET `nickname`='" + name + "' WHERE `uuid`='" + uuid + "'");
 			}
 			
 			
