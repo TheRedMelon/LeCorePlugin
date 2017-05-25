@@ -33,6 +33,7 @@ public class OnChat implements Listener {
 			path = path.replace("getMessage", "%2$s").replace("getDisplayName", "%1$s").replace("getRank", rank.getColoredRank(p.getUniqueId()));
 				
 		}else{
+			nick = ChatColor.GRAY + "~" + ChatColor.RESET + nick;
 			path = path.replace("getMessage", "%2$s").replace("getDisplayName", nick).replace("getRank", rank.getColoredRank(p.getUniqueId()));
 
 		}
