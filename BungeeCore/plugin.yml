@@ -1,6 +1,0 @@
-name: BungeeCore
-version: 1
-description: Core plugin for NekoMC Proxy plugins
-author: TheDreps
-website: www.nekomc.com
-main: com.nekomc.bungeecore.BungeeCore
