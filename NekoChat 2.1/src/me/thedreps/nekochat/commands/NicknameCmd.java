@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import me.thedreps.nekochat.NekoChat;
 import me.thedreps.nekochat.Nicknames;
 
 public class NicknameCmd implements CommandExecutor {
@@ -38,14 +39,22 @@ public class NicknameCmd implements CommandExecutor {
 			}
 			
 			
-			nicknames.setNickname(p.getUniqueId().toString(), args[0]);
+			String test = ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', args[0])).toLowerCase();
+
+			if(NekoChat.plugin.getNamesConfig().contains(test)){
+				p.sendMessage(prefix + "Ay thats identity theft!");
+				return false;
+			}
 			
+			
+			nicknames.setNickname(p.getUniqueId().toString(), args[0]);
 			
 			
 			if(args[0].equalsIgnoreCase("off")){
 				p.sendMessage(prefix + "Nickname disabled!");
 				return false;
 			}
+			
 			
 			p.sendMessage(prefix + "Nickname set!");
 			
