@@ -27,7 +27,7 @@ public class RulesCmd implements CommandExecutor{
 			
 		}
 		
-		String json = "{\"text\":\"Click here to see the rules.\",\"color\":\"dark_purple\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.nekomc.com/rules\"}}";
+		String json = "{\"text\":\"Click here to see the rules onlone.\",\"color\":\"dark_purple\",\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://www.nekomc.com/rules\"}}";
 		PacketPlayOutChat packet = new PacketPlayOutChat(ChatSerializer.a(json));
 		((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
 		
