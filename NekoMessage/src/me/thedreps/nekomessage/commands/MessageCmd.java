@@ -1,9 +1,6 @@
 package me.thedreps.nekomessage.commands;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.UUID;
-
 import me.thedreps.nekomessage.DataStorage;
 import me.thedreps.nekomessage.NekoMessage;
 import me.thedreps.nekomessage.Rank;
@@ -61,9 +58,7 @@ public class MessageCmd extends Command {
 				+ msg).create());
 		
 		
-		HashMap<UUID, UUID> lastMsg = storage.getReplyMap();
-		
-		lastMsg.put(player.getUniqueId(), receiver.getUniqueId());
-		lastMsg.put(receiver.getUniqueId(), player.getUniqueId());
+		DataStorage.lastMsg.put(player.getUniqueId(), receiver.getUniqueId());
+		DataStorage.lastMsg.put(receiver.getUniqueId(), player.getUniqueId());
 	}
 }

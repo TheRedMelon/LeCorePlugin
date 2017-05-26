@@ -1,9 +1,5 @@
 package me.thedreps.nekomessage.commands;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.UUID;
-
 import me.thedreps.nekomessage.DataStorage;
 import me.thedreps.nekomessage.NekoMessage;
 import me.thedreps.nekomessage.Rank;
@@ -21,28 +17,29 @@ public class ReplyCmd extends Command{
 	
 	Rank rank = new Rank();
 	String prefix = ChatColor.DARK_PURPLE + "Msg" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-	DataStorage storage = new DataStorage();
-	HashMap<UUID, UUID> lastMsg = storage.getReplyMap();
 
 	@Override
 	public void execute(CommandSender sender, String[] args) {
 		
+		if(args.length == 0){
+			sender.sendMessage(new ComponentBuilder(prefix + "Usage: /r <message>").create());
+			return;
+		}
+		
 		ProxiedPlayer player = (ProxiedPlayer) sender;
 		
-		if(!(lastMsg.containsKey(player.getUniqueId()))){
+		if(!(DataStorage.lastMsg.containsKey(player.getUniqueId()))){
 			player.sendMessage(new ComponentBuilder(prefix + "You haven't messaged anyone recently!").create());
 			return;
 		}
 		
-		ProxiedPlayer receiver = NekoMessage.plugin.getProxy().getPlayer(lastMsg.get(player.getUniqueId()));
+		ProxiedPlayer receiver = NekoMessage.plugin.getProxy().getPlayer(DataStorage.lastMsg.get(player.getUniqueId()));
 		if(receiver == null){
 			player.sendMessage(new ComponentBuilder(prefix + "That player is no longer online.").create());
 			return;
 		}
 		
-		
-		String[] msgArray = Arrays.copyOfRange(args, 1, args.length);
-		String msg = String.join(" ", msgArray);
+		String msg = String.join(" ", args);
 		
 		player.sendMessage(new ComponentBuilder(ChatColor.LIGHT_PURPLE + "[" + ChatColor.RESET + "You " + ChatColor.LIGHT_PURPLE + "-> "
 				+ rank.getColoredRank(receiver.getUniqueId()) + ChatColor.RESET + " " + receiver.getDisplayName()
@@ -55,7 +52,9 @@ public class ReplyCmd extends Command{
 				+ ChatColor.RESET + "You" + ChatColor.LIGHT_PURPLE + "] " + ChatColor.RESET
 				+ msg).create());
 		
-		lastMsg.put(receiver.getUniqueId(), player.getUniqueId());
+		
+		DataStorage.lastMsg.put(receiver.getUniqueId(), player.getUniqueId());
+
 		
 	}
 

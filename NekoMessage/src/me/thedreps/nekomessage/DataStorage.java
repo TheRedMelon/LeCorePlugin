@@ -5,10 +5,19 @@ import java.util.UUID;
 
 public class DataStorage {
 	
-	private HashMap<UUID, UUID> lastSentMessages = new HashMap<UUID, UUID>();
+	public static HashMap<UUID, UUID> lastMsg = new HashMap<UUID, UUID>();
+//	
+//	public void setUUID(UUID uuid1, UUID uuid2){
+//		lastMsg.put(uuid1, uuid2);
+//	}
+//	
+//	public UUID getUUID(UUID uuid){
+//		
+//		UUID uuid2 = lastMsg.get(uuid);
+//		
+//		return uuid2;
+//	}
+//	
 	
-	public HashMap<UUID, UUID> getReplyMap(){
-		return lastSentMessages;
-	}
 
 }
