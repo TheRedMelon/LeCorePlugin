@@ -1,4 +1,4 @@
-package com.nekomc.com.nekoFundamentals;
+package com.nekomc.nekoFundamentals;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
