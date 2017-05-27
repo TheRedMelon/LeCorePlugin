@@ -1,4 +1,4 @@
-package com.nekomc.com.nekoFundamentals.commands;
+package com.nekomc.nekoFundamentals.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
