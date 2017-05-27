@@ -22,12 +22,8 @@ public class PlayerJoin implements Listener{
 		String joinPrefix = ChatColor.WHITE + "[" + ChatColor.GREEN + "+" + ChatColor.WHITE + "]";
 		String rank = rankClass.getColoredRank(uuid);
 		
-		if(!(rankClass.getRank(uuid).equals("No Rank"))){
-			e.setJoinMessage(joinPrefix + " " + rank + ChatColor.RESET + " " + e.getPlayer().getName());
-		}else{
-			e.setJoinMessage(joinPrefix + " " + ChatColor.RESET + e.getPlayer().getName());
-		}
-		
+		e.setJoinMessage(joinPrefix + " " + rank + ChatColor.RESET + e.getPlayer().getName());
+
 		
 		NekoChat.plugin.getNamesConfig().set(e.getPlayer().getName().toLowerCase(), rankClass.getRank(e.getPlayer().getUniqueId()));
 		NekoChat.plugin.saveNames();

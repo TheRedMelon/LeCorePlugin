@@ -22,8 +22,10 @@ import me.thedreps.nekochat.sql.SQLD;
 public class NekoChat extends JavaPlugin{
 	
 	public static NekoChat plugin;
+	
 	public static Connection c;
 	MySQL SQL = new MySQL(SQLD.host, SQLD.port, SQLD.db, SQLD.user, SQLD.pw);
+
 	
 	
 	public void onEnable(){
@@ -91,7 +93,7 @@ public class NekoChat extends JavaPlugin{
 
     private void createFiles() {
 
-        namesf = new File(getDataFolder(), "nickname.yml");
+        namesf = new File(getDataFolder(), "names.yml");
 
         if (!namesf.exists()) {
             namesf.getParentFile().mkdirs();

@@ -21,12 +21,8 @@ public class PlayerQuit implements Listener{
 		String joinPrefix = ChatColor.WHITE + "[" + ChatColor.RED + "-" + ChatColor.WHITE + "]";
 		String rank = rankClass.getColoredRank(uuid);
 		
-		if(!(rankClass.getRank(uuid).equals("No Rank"))){
-			e.setQuitMessage(joinPrefix + " " + rank + ChatColor.RESET + " " + e.getPlayer().getName());
-		}else{
-			e.setQuitMessage(joinPrefix + ChatColor.RESET + " " + e.getPlayer().getName());
-		}
-		
+		e.setQuitMessage(joinPrefix + " " + rank + ChatColor.RESET + e.getPlayer().getName());
+
 	}
 
 }

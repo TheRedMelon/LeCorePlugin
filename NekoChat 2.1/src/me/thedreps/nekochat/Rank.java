@@ -36,19 +36,19 @@ public class Rank {
 	  {
 	    Player player = Bukkit.getServer().getPlayer(uuid);
 	    if (player.hasPermission("rank.slt")) {
-	      return ChatColor.DARK_RED + "" + ChatColor.BOLD + "SLT" + ChatColor.RESET;
+	      return ChatColor.DARK_RED + "" + ChatColor.BOLD + "SLT " + ChatColor.RESET;
 	    }
 	    if (player.hasPermission("rank.admin")) {
-	      return ChatColor.AQUA + "" + ChatColor.BOLD + "ADMIN" + ChatColor.RESET;
+	      return ChatColor.AQUA + "" + ChatColor.BOLD + "ADMIN " + ChatColor.RESET;
 	    }
 	    if (player.hasPermission("rank.mod")) {
-	      return ChatColor.GOLD + "" + ChatColor.BOLD + "MOD" + ChatColor.RESET;
+	      return ChatColor.GOLD + "" + ChatColor.BOLD + "MOD " + ChatColor.RESET;
 	    }
 	    if (player.hasPermission("rank.nekochan")){
-	    	return ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Neko-chan";
+	    	return ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Neko-chan " + ChatColor.RESET;
 	    }
 	    if (player.hasPermission("rank.koneko")){
-	    	return ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Koneko";
+	    	return ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Koneko " + ChatColor.RESET;
 	    }
 	    if (player.hasPermission("rank.default")) {
 	      return "";
