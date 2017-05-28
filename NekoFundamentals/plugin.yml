@@ -1,0 +1,9 @@
+name: NekoFundomentals
+version: 1
+authors: [TheDreps, TheRedMelon]
+website: www.nekomc.com
+main: com.nekomc.nekoFundamentals.NekoFundamentals
+commands:
+  gamemode:
+    description: Change your gamemode.
+    aliases: gm

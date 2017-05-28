@@ -1,1 +1,6 @@
 nf.gamemode
+nf.gamemode.survival
+nf.gamemode.creative
+nf.gamemode.adventure
+nf.gamemode.spectator
+nf.gamemode.others
