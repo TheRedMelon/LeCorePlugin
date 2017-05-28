@@ -7,3 +7,5 @@ commands:
   gamemode:
     description: Change your gamemode.
     aliases: gm
+  tree:
+    description: spawn a tree where you are looking
