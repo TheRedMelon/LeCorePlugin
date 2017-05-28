@@ -116,17 +116,16 @@ public class GamemodeCmd implements CommandExecutor{
 				
 				
 				
-				if(args[0].equalsIgnoreCase("survival")){
-					
-					
-					if(args[0].equalsIgnoreCase("survival") ||
-							args[0].equalsIgnoreCase("s") ||
-							args[0].equalsIgnoreCase("0")){
+				if(args[0].equalsIgnoreCase("survival") ||
+						args[0].equalsIgnoreCase("s") ||
+						args[0].equalsIgnoreCase("0")){
 						
+					if(p.hasPermission("nf.gamemode.creative")){
+					
 						p2.setGameMode(GameMode.SURVIVAL);
 						return false;
 						
-					}else{
+					} else{
 						p.sendMessage(noPerms);
 						return false;
 					}
