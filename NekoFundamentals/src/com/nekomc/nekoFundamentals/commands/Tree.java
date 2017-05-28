@@ -70,25 +70,40 @@ public class Tree implements CommandExecutor {
 				
 			} else {
 				
-				if (!args[1].equalsIgnoreCase("true")) {
+				if (args.length == 2) {
+				
+					if (!args[1].equalsIgnoreCase("true")) {
+						
+						p.sendMessage(usage);
+						return false;
+						
+					}
 					
-					p.sendMessage(usage);
-					return false;
+					try {
+						
+						tt = TreeType.valueOf(args[0]);
+					
+					} catch (IllegalArgumentException e) {
+						
+						p.sendMessage(usage);
+						return false;
+						
+					}
+					
+					loc.getWorld().generateTree(loc, tt);
+				
+				} else {
+					
+					if (!loc.getBlock().getType().equals(Material.DIRT) || !loc.getBlock().getType().equals(Material.GRASS)) {
+						
+						p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "A tree can't be placed here!  Try on grass or dirt or use: "  + ChatColor.DARK_PURPLE + "/tree [tree type] true");
+						return false;
+						
+					}
+					
+					loc.getWorld().generateTree(loc, tt);
 					
 				}
-				
-				try {
-					
-					tt = TreeType.valueOf(args[0]);
-				
-				} catch (IllegalArgumentException e) {
-					
-					p.sendMessage(usage);
-					return false;
-					
-				}
-				
-				loc.getWorld().generateTree(loc, tt);
 				
 			}
 		
