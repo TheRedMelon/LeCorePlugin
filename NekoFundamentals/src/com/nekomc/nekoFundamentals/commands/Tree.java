@@ -1,5 +1,7 @@
 package com.nekomc.nekoFundamentals.commands;
 
+import java.util.Set;
+
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -35,7 +37,7 @@ public class Tree implements CommandExecutor {
 		if (args.length <= 2) {
 			
 			Player p = (Player) sender;
-			Location loc = p.getEyeLocation();
+			Location loc = p.getTargetBlock((Set<Material>) null, 200).getLocation();
 			TreeType tt = TreeType.TREE;
 			
 			if (args.length == 1) {
