@@ -3,7 +3,6 @@ package com.nekomc.nekoFundamentals.commands;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.TreeType;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,9 +13,9 @@ public class Tree implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-		String noPerms = prefix + "Sorry you do not have the required permissions";
-		String usage = prefix + "Usage: /gamemode <gamemode> [player]";
+//		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
+//		String noPerms = prefix + "Sorry you do not have the required permissions";
+//		String usage = prefix + "Usage: /gamemode <gamemode> [player]";
 		
 		
 		if (!(sender instanceof Player)) {
@@ -30,7 +29,7 @@ public class Tree implements CommandExecutor {
 			
 			Player p = (Player) sender;
 			Location loc = p.getEyeLocation();
-			TreeType tt = TreeType.TREE;
+//			TreeType tt = TreeType.TREE;
 			
 			if (args.length == 1) {
 				
@@ -49,7 +48,7 @@ public class Tree implements CommandExecutor {
 					
 					try {
 						
-						tt = TreeType.valueOf(args[0]);
+//						tt = TreeType.valueOf(args[0]);
 					
 					} catch (IllegalArgumentException e) {
 						
