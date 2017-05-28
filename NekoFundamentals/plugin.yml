@@ -7,3 +7,5 @@ commands:
   gamemode:
     description: Change your gamemode.
     aliases: gm
+  suicide:
+    description: kill yourself.
