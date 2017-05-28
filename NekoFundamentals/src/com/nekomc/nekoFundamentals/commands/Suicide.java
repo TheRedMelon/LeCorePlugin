@@ -33,6 +33,7 @@ public class Suicide implements CommandExecutor {
 		
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_HURT, 10F, 1F);
 		p.setHealth(0D);
+		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
 		p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Great sadness drove you to suicide");
 		
 		return true;
