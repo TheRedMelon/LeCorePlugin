@@ -15,8 +15,8 @@ public class NekoFundamentals extends JavaPlugin{
 	
 	private void registerCommands() {
 		
-		getCommand("tree").setExecutor(new Tree());
 		getCommand("gamemode").setExecutor(new GamemodeCmd());
+		getCommand("tree").setExecutor(new Tree());
 		
 	}
 	
