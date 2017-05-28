@@ -120,7 +120,7 @@ public class GamemodeCmd implements CommandExecutor{
 						args[0].equalsIgnoreCase("s") ||
 						args[0].equalsIgnoreCase("0")){
 						
-					if(p.hasPermission("nf.gamemode.creative")){
+					if(p.hasPermission("nf.gamemode.survival")){
 					
 						p2.setGameMode(GameMode.SURVIVAL);
 						return false;
