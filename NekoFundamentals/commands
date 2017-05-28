@@ -1,0 +1,61 @@
+*big tree / tree
+*feed (feed others)
+*fly (fly others)
+						*gamemode (gamemode others)
+*hat
+*heal (heal others)
+*item (item others)
+*kit (make kit, kit others, specific kits) [GUI]
+*ptime (ptime others)
+*time (time set) [/day /night]
+*afk (afk others) [dont pick up items]
+*help (nekochat?)
+*helpop (helpoop receive, nekochat?)
+*list (list vanish)
+*mail (mail notification, mail send, nekochat?)
+*me (nekochat?)
+?*near (near others)
+*powertool
+*realname
+*seen (seen ban reason)
+*suicide
+*whois (whois vanish)
+*broadcast (NekoChat)
+*Alert (NekoMessage)
+*clearinventory (clearinventory others)
+deljail
+extinguish (extinguish other)
+fireball
+gc
+invsee (invsee modify, invsee preventmodify)
+jails
+kill
+killall
+lightning
+smite
+remove
+setjail
+socialspy
+spawnmob
+sudo (sudo exempt)
+togglejail
+vanish (vanish see)
+back (back on death)
+delhome (delhome others)
+delwarp
+home (home others)
+jump
+sethome (sethome multiple)
+setwarp
+top
+tp (tp others)
+tpa
+tpall
+tpaccept
+tpdeny
+tpahere
+tphere
+tpo
+tpohere
+tppos
+warp (warp specific)
