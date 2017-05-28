@@ -9,7 +9,7 @@
 *ptime (ptime others)
 *time (time set) [/day /night]
 *afk (afk others) [dont pick up items]
-*help (nekochat?)
+*help (nekochat?) - just povide a link to help online
 *helpop (helpoop receive, nekochat?)
 *list (list vanish)
 *mail (mail notification, mail send, nekochat?)
@@ -23,39 +23,22 @@
 *broadcast (NekoChat)
 *Alert (NekoMessage)
 *clearinventory (clearinventory others)
-deljail
-extinguish (extinguish other)
-fireball
-gc
-invsee (invsee modify, invsee preventmodify)
-jails
-kill
-killall
-lightning
-smite
-remove
-setjail
-socialspy
-spawnmob
-sudo (sudo exempt)
-togglejail
-vanish (vanish see)
-back (back on death)
-delhome (delhome others)
-delwarp
-home (home others)
-jump
-sethome (sethome multiple)
-setwarp
-top
-tp (tp others)
-tpa
-tpall
-tpaccept
-tpdeny
-tpahere
-tphere
-tpo
-tpohere
-tppos
-warp (warp specific)
+*invsee (invsee modify, invsee preventmodify)
+*kill
+*killall
+*spawnmob
+*sudo (sudo exempt)
+*vanish (vanish see)
+*back (back on death)
+*delhome (delhome others)
+*home (home others)
+*sethome (sethome multiple)
+*top
+*tp (tp others)
+*tpa
+*tpall
+*tpaccept
+*tpdeny
+*tpahere
+*tphere
+*warp (warp specific)
