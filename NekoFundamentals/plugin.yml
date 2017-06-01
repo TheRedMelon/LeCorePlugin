@@ -9,3 +9,5 @@ commands:
     aliases: gm
   suicide:
     description: kill yourself.
+  kill:
+    description: kills a player.

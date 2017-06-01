@@ -5,3 +5,4 @@ nf.gamemode.adventure
 nf.gamemode.spectator
 nf.gamemode.others
 nf.suicide
+nf.kill

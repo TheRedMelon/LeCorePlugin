@@ -3,6 +3,7 @@ package com.nekomc.nekoFundamentals;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.nekomc.nekoFundamentals.commands.GamemodeCmd;
+import com.nekomc.nekoFundamentals.commands.Kill;
 import com.nekomc.nekoFundamentals.commands.Suicide;
 
 public class NekoFundamentals extends JavaPlugin{
@@ -17,6 +18,7 @@ public class NekoFundamentals extends JavaPlugin{
 		
 		getCommand("gamemode").setExecutor(new GamemodeCmd());
 		getCommand("suicide").setExecutor(new Suicide());
+		getCommand("kill").setExecutor(new Kill());
 		
 	}
 	
