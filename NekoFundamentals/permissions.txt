@@ -6,3 +6,6 @@ nf.gamemode.spectator
 nf.gamemode.others
 nf.suicide
 nf.kill
+nf.kill.others
+nf.heal
+nf.heal.others

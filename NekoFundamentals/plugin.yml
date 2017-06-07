@@ -11,3 +11,5 @@ commands:
     description: kill yourself.
   kill:
     description: kills a player.
+  heal:
+    description: hears you, or others.

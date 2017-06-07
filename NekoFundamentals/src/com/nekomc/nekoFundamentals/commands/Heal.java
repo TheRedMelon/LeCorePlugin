@@ -2,13 +2,13 @@ package com.nekomc.nekoFundamentals.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Sound;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Kill implements CommandExecutor {
+public class Heal implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
@@ -17,8 +17,8 @@ public class Kill implements CommandExecutor {
 		String noPerms = prefix + "Sorry you do not have the required permissions";
 		String usage = prefix + "Usage: /kill [player]";
 		
-		if (!sender.hasPermission("nf.kill")) {
-		
+		if (!sender.hasPermission("nf.heal")) {
+			
 			sender.sendMessage(noPerms);
 			return false;
 			
@@ -29,8 +29,10 @@ public class Kill implements CommandExecutor {
 			sender.sendMessage(usage);
 			return false;
 			
-		} else if (args.length == 0) {
-			
+		}
+		
+		if (args.length < 1) {
+				
 			if (!(sender instanceof Player)) {
 				
 				sender.sendMessage(prefix + "Please run the command as a player if you do not use any arguments!");
@@ -40,42 +42,39 @@ public class Kill implements CommandExecutor {
 				
 				Player p = (Player) sender;
 				
-				p.setHealth(0D);
-				p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Great sadness drove you to suicide");
+				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed yourself!");
 				
 			}
 			
 		} else {
 			
-			if (!sender.hasPermission("nf.kill.others")) {
+			if (!sender.hasPermission("nf.heal.others")) {
 				
 				sender.sendMessage(noPerms);
 				return false;
 				
+			}
+			
+			Player p = Bukkit.getPlayer(args[0]);
+			
+			if (p == null) {
+				
+				sender.sendMessage(prefix + "Player: " + p + " was not found!");
+				return false;
+				
 			} else {
 				
-				Player p = Bukkit.getPlayer(args[0]);
-				
-				if (p != null) {
-				
-					p.setHealth(0D);
-					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-					p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You were killed by " + sender.getName());
-					sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You killed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
-				
-				} else {
-					
-					sender.sendMessage(prefix + "Player: " + args[0] + " was not found!");
-					
-				}
+				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "magically healed you!");
+				sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
 				
 			}
 			
 		}
 		
 		return true;
-	
+		
 	}
 
 }
