@@ -42,7 +42,7 @@ public class Kill implements CommandExecutor {
 				
 				p.setHealth(0D);
 				p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Great sadness drove you to suicide");
+				p.sendMessage(prefix + "Great sadness drove you to suicide");
 				
 			}
 			
@@ -61,8 +61,8 @@ public class Kill implements CommandExecutor {
 				
 					p.setHealth(0D);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-					p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You were killed by " + sender.getName());
-					sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You killed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
+					p.sendMessage(prefix + "You were killed by " + sender.getName());
+					sender.sendMessage(prefix + "You killed " + p.getName() + ChatColor.RESET + "!");
 				
 				} else {
 					

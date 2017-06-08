@@ -43,7 +43,7 @@ public class Heal implements CommandExecutor {
 				Player p = (Player) sender;
 				
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed yourself!");
+				p.sendMessage(prefix + "You magically healed yourself!");
 				
 			}
 			
@@ -66,8 +66,8 @@ public class Heal implements CommandExecutor {
 			} else {
 				
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "magically healed you!");
-				sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
+				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + "magically healed you!");
+				sender.sendMessage(prefix + "You magically healed " + p.getName() + ChatColor.RESET + "!");
 				
 			}
 			

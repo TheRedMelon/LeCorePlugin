@@ -24,7 +24,7 @@ public class Suicide implements CommandExecutor {
 		
 		if (!(sender instanceof Player)) {
 			
-			sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Please run this command as a " + ChatColor.DARK_PURPLE + "PLAYER" + ChatColor.LIGHT_PURPLE + "!");
+			sender.sendMessage(prefix + "Please run this command as a " + ChatColor.DARK_PURPLE + "PLAYER" + ChatColor.RESET + "!");
 			return false;
 			
 		}
@@ -33,7 +33,7 @@ public class Suicide implements CommandExecutor {
 		
 		p.setHealth(0D);
 		p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-		p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Great sadness drove you to suicide");
+		p.sendMessage(prefix + "Great sadness drove you to suicide");
 		
 		return true;
 		
