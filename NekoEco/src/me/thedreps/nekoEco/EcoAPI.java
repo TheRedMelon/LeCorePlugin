@@ -3,7 +3,7 @@ package me.thedreps.nekoEco;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class API {
+public class EcoAPI {
 
 	public Integer getBal(String uuid) {
 
@@ -95,6 +95,16 @@ public class API {
 		} catch (SQLException sql) {
 			sql.printStackTrace();
 			NekoEco.plugin.getLogger().warning("[NekoEco] SQL error!");
+		}
+	}
+
+	public boolean checkBal(String uuid, int amount){
+		int current = getBal(uuid);
+		
+		if(amount <= current){
+			return true;
+		}else{
+			return false;
 		}
 	}
 
