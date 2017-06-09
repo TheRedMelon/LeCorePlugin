@@ -52,7 +52,7 @@ public class BalanceCmd implements CommandExecutor{
 					return true;
 				}
 				
-				player.sendMessage(prefix + "$" + api.getBal(player.getUniqueId().toString()));
+				player.sendMessage(prefix + "$" + api.getBal(player2.getUniqueId().toString()));
 				return true;
 			}else{
 				player.sendMessage(noPerms);
