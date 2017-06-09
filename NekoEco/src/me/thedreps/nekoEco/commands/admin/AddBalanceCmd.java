@@ -1,4 +1,4 @@
-package me.thedreps.nekoEco.commands;
+package me.thedreps.nekoEco.commands.admin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

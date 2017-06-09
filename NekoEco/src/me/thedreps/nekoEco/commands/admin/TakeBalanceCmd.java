@@ -1,4 +1,4 @@
-package me.thedreps.nekoEco.commands;
+package me.thedreps.nekoEco.commands.admin;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import me.thedreps.nekoEco.API;
 
-public class SetBalanceCmd implements CommandExecutor{
+public class TakeBalanceCmd implements CommandExecutor{
 	
 	API api = new API();
 
@@ -46,7 +46,7 @@ public class SetBalanceCmd implements CommandExecutor{
 			if(player.hasPermission("nekoeco.setbalance")){
 
 				int amount = Integer.parseInt(args[0]);
-				api.setBal(player.getUniqueId().toString(), amount);
+				api.takeBal(player.getUniqueId().toString(), amount);
 				
 				player.sendMessage(prefix + "Balance set!");
 				return true;
@@ -69,7 +69,7 @@ public class SetBalanceCmd implements CommandExecutor{
 				String uuid = player2.getUniqueId().toString();
 				int amount = Integer.parseInt(args[0]);
 				
-				api.setBal(uuid, amount);
+				api.takeBal(uuid, amount);
 				
 				player.sendMessage(prefix + "Balance set!");
 				return true;

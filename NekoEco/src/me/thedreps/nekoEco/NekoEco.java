@@ -4,10 +4,10 @@ import java.sql.Connection;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.thedreps.nekoEco.commands.AddBalanceCmd;
 import me.thedreps.nekoEco.commands.BalanceCmd;
-import me.thedreps.nekoEco.commands.SetBalanceCmd;
-import me.thedreps.nekoEco.commands.TakeBalanceCmd;
+import me.thedreps.nekoEco.commands.admin.AddBalanceCmd;
+import me.thedreps.nekoEco.commands.admin.SetBalanceCmd;
+import me.thedreps.nekoEco.commands.admin.TakeBalanceCmd;
 import me.thedreps.nekoEco.sql.MySQL;
 import me.thedreps.nekoEco.sql.SQLD;
 
