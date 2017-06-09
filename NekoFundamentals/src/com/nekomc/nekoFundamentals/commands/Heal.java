@@ -66,7 +66,7 @@ public class Heal implements CommandExecutor {
 			} else {
 				
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + "magically healed you!");
+				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + " magically healed you!");
 				sender.sendMessage(prefix + "You magically healed " + p.getName() + ChatColor.RESET + "!");
 				
 			}
