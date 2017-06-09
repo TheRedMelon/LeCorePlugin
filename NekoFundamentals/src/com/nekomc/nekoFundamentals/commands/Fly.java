@@ -35,12 +35,12 @@ public class Fly implements CommandExecutor {
 			
 			if (p.isFlying()) {
 				
-				p.setFlying(false);
+				p.setAllowFlight(false);
 				p.sendMessage(prefix + "You're falling through the air...  You're plummeting through the moonlit sky....");
 				
 			} else {
 			
-				p.setFlying(true);
+				p.setAllowFlight(true);
 				p.sendMessage(prefix + "You're walking in the air...  You're floating in the moonlit sky....");
 			
 			}
@@ -60,13 +60,13 @@ public class Fly implements CommandExecutor {
 			
 				if (p.isFlying()) {
 					
-					p.setFlying(false);
+					p.setAllowFlight(false);
 					p.sendMessage(prefix + "Your gift of flight was revoked by " + sender.getName() + ChatColor.RESET + "!");
 					sender.sendMessage(prefix + "You revoked the gift of flight from " + p.getName() + ChatColor.RESET + "!");
 					
 				} else {
 				
-					p.setFlying(true);
+					p.setAllowFlight(false);
 					p.sendMessage(prefix + "You were given the gift of flight by " + sender.getName() + ChatColor.RESET + "!");
 					sender.sendMessage(prefix + "You gave the gift of flight to " + p.getName() + ChatColor.RESET + "!");
 			
