@@ -10,3 +10,6 @@ commands:
   setbalance:
     description: Set a players balance.
     aliases: [setbal, setmoney, seteco, seteconomy]
+  addbalance:
+    description: Gives the player more money.
+    aliases: [addbal, addmoney, addeco, addeconomy]
