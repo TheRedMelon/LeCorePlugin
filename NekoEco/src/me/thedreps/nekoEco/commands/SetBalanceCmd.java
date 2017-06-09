@@ -46,7 +46,7 @@ public class SetBalanceCmd implements CommandExecutor{
 			if(player.hasPermission("nekoeco.setbalance")){
 
 				int amount = Integer.parseInt(args[0]);
-				api.addBal(player.getUniqueId().toString(), amount);
+				api.setBal(player.getUniqueId().toString(), amount);
 				
 				player.sendMessage(prefix + "Balance set!");
 				return true;
@@ -69,7 +69,7 @@ public class SetBalanceCmd implements CommandExecutor{
 				String uuid = player2.getUniqueId().toString();
 				int amount = Integer.parseInt(args[0]);
 				
-				api.addBal(uuid, amount);
+				api.setBal(uuid, amount);
 				
 				player.sendMessage(prefix + "Balance set!");
 				return true;
