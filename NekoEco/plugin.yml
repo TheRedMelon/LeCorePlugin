@@ -7,3 +7,6 @@ commands:
   balance:
     description: Shows the players balance.
     aliases: [bal, money, eco, economy]
+  setbalance:
+    description: Set a players balance.
+    aliases: [setbal, setmoney, seteco, seteconomy]
