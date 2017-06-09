@@ -15,7 +15,7 @@ public class Heal implements CommandExecutor {
 		
 		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions";
-		String usage = prefix + "Usage: /kill [player]";
+		String usage = prefix + "Usage: /heal [player]";
 		
 		if (!sender.hasPermission("nf.heal")) {
 			
