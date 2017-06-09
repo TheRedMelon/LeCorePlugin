@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.thedreps.nekoEco.commands.AddBalanceCmd;
 import me.thedreps.nekoEco.commands.BalanceCmd;
 import me.thedreps.nekoEco.commands.SetBalanceCmd;
+import me.thedreps.nekoEco.commands.TakeBalanceCmd;
 import me.thedreps.nekoEco.sql.MySQL;
 import me.thedreps.nekoEco.sql.SQLD;
 
@@ -37,6 +38,7 @@ public class NekoEco extends JavaPlugin{
 		getCommand("balance").setExecutor(new BalanceCmd());
 		getCommand("setbalance").setExecutor(new SetBalanceCmd());
 		getCommand("addbalance").setExecutor(new AddBalanceCmd());
+		getCommand("takebalance").setExecutor(new TakeBalanceCmd());
 	}
 
 }

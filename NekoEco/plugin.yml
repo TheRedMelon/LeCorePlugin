@@ -13,3 +13,6 @@ commands:
   addbalance:
     description: Gives the player more money.
     aliases: [addbal, addmoney, addeco, addeconomy]
+  takebalance:
+    description: Takes money from the player.
+    aliases: [takebal, takemoney, takeeco, takeeconomy]
