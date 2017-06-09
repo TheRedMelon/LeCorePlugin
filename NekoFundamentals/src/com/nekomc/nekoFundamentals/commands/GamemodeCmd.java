@@ -14,7 +14,7 @@ public class GamemodeCmd implements CommandExecutor{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
 		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-		String noPerms = prefix + "Sorry you do not have the required permissions";
+		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /gamemode <gamemode> [player]";
 		
 		if (!(sender instanceof Player)) {
