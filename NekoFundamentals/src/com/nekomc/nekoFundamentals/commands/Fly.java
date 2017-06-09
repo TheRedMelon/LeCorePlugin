@@ -86,6 +86,7 @@ public class Fly implements CommandExecutor {
 					p = (Player) sender;
 					
 					p.setAllowFlight(true);
+					p.sendMessage(prefix + "You're walking in the air...  You're floating in the moonlit sky....");
 					
 				} else if (args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("disable") || args[0].equalsIgnoreCase("false") || args[0].equalsIgnoreCase("no")) {
 					
@@ -99,6 +100,7 @@ public class Fly implements CommandExecutor {
 					p = (Player) sender;
 					
 					p.setAllowFlight(false);
+					p.sendMessage(prefix + "You're falling through the air...  You're plummeting through the moonlit sky....");
 					
 				} else {
 				
