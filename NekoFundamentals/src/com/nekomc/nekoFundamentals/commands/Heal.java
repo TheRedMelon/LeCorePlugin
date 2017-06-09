@@ -13,7 +13,7 @@ public class Heal implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
+		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /heal [player]";
 		

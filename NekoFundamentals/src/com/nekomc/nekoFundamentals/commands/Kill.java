@@ -13,7 +13,7 @@ public class Kill implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
+		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /kill [player]";
 		
@@ -42,7 +42,7 @@ public class Kill implements CommandExecutor {
 				
 				p.setHealth(0D);
 				p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-				p.sendMessage(prefix + "Great sadness drove you to suicide");
+				p.sendMessage(ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET + "Great sadness drove you to suicide");
 				
 			}
 			
@@ -61,7 +61,7 @@ public class Kill implements CommandExecutor {
 				
 					p.setHealth(0D);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-					p.sendMessage(prefix + "You were killed by " + sender.getName());
+					p.sendMessage(prefix + "You were killed by " + sender.getName() + ChatColor.RESET + "!");
 					sender.sendMessage(prefix + "You killed " + p.getName() + ChatColor.RESET + "!");
 				
 				} else {
