@@ -12,9 +12,9 @@ public class Fly implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
+		String prefix = ChatColor.DARK_PURPLE + "Cheats" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions";
-		String usage = prefix + "Usage: /fly [player]";
+		String usage = prefix + "Usage: /fly [player] [enable/disable]";
 		
 		if (!sender.hasPermission("nf.fly")) {
 			
@@ -33,7 +33,7 @@ public class Fly implements CommandExecutor {
 			
 			Player p = (Player) sender;
 			
-			if (p.isFlying()) {
+			if (p.getAllowFlight()) {
 				
 				p.setAllowFlight(false);
 				p.sendMessage(prefix + "You're falling through the air...  You're plummeting through the moonlit sky....");
@@ -47,18 +47,18 @@ public class Fly implements CommandExecutor {
 			
 		} else if (args.length == 1) {
 			
-			if (!sender.hasPermission("nf.fly.others")) {
-				
-				sender.sendMessage(noPerms);
-				return true;
-				
-			}
-			
 			Player p = Bukkit.getPlayer(args[0]);
 			
 			if (p != null) {
-			
-				if (p.isFlying()) {
+				
+				if (!sender.hasPermission("nf.fly.others")) {
+					
+					sender.sendMessage(noPerms);
+					return true;
+					
+				}
+				
+				if (p.getAllowFlight()) {
 					
 					p.setAllowFlight(false);
 					p.sendMessage(prefix + "Your gift of flight was revoked by " + sender.getName() + ChatColor.RESET + "!");
@@ -74,6 +74,81 @@ public class Fly implements CommandExecutor {
 					
 			} else {
 				
+				if (args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("enable") || args[0].equalsIgnoreCase("true") || args[0].equalsIgnoreCase("yes")) {
+					
+					if (!(sender instanceof Player)) {
+						
+						sender.sendMessage(prefix + "Please run the command as a player if you are using enable or disable as your first argument!");
+						return false;
+						
+					}
+					
+					p = (Player) sender;
+					
+					p.setAllowFlight(true);
+					
+				} else if (args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("disable") || args[0].equalsIgnoreCase("false") || args[0].equalsIgnoreCase("no")) {
+					
+					if (!(sender instanceof Player)) {
+						
+						sender.sendMessage(prefix + "Please run the command as a player if you are using enable or disable as your first argument!");
+						return false;
+						
+					}
+					
+					p = (Player) sender;
+					
+					p.setAllowFlight(false);
+					
+				} else {
+				
+					if (!sender.hasPermission("nf.fly.others")) {
+						
+						sender.sendMessage(noPerms);
+						return true;
+						
+					}
+					
+					sender.sendMessage(prefix + "Player: " + args[0] + " was not found!");
+					
+				}
+				
+			}
+			
+		} else if (args.length == 2) {
+			
+			if (!sender.hasPermission("nf.fly.others")) {
+				
+				sender.sendMessage(noPerms);
+				return true;
+				
+			}
+			
+			Player p = Bukkit.getPlayer(args[0]);
+			
+			if (p != null) {
+				
+				if (args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("enable") || args[0].equalsIgnoreCase("true") || args[0].equalsIgnoreCase("yes")) {
+					
+					p.sendMessage(prefix + "You were given the gift of flight by " + sender.getName() + ChatColor.RESET + "!");
+					sender.sendMessage(prefix + "You gave the gift of flight to " + p.getName() + ChatColor.RESET + "!");
+					p.setAllowFlight(true);
+					
+				} else if (args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("disable") || args[0].equalsIgnoreCase("false") || args[0].equalsIgnoreCase("no")) {
+					
+					p.setAllowFlight(false);
+					p.sendMessage(prefix + "Your gift of flight was revoked by " + sender.getName() + ChatColor.RESET + "!");
+					sender.sendMessage(prefix + "You revoked the gift of flight from " + p.getName() + ChatColor.RESET + "!");
+					
+				} else {
+					
+					sender.sendMessage(usage);
+					return true;
+					
+				}
+					
+			} else {
+					
 				sender.sendMessage(prefix + "Player: " + args[0] + " was not found!");
 				
 			}
