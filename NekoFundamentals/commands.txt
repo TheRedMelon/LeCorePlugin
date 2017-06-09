@@ -2,7 +2,7 @@
 *fly (fly others)
 						*gamemode (gamemode others)
 *hat
-*heal (heal others)
+						*heal (heal others)
 *item (item others)
 *kit (make kit, kit others, specific kits) [GUI]
 *ptime (ptime others)
@@ -23,7 +23,7 @@
 *Alert (NekoMessage)
 *clearinventory (clearinventory others)
 *invsee (invsee modify, invsee preventmodify)
-*kill
+						*kill
 *killall
 *spawnmob
 *sudo (sudo exempt)
@@ -41,3 +41,4 @@
 *tpahere
 *tphere
 *warp (warp specific)
+*speed

@@ -13,3 +13,5 @@ commands:
     description: kills a player.
   heal:
     description: hears you, or others.
+  fly:
+    description: lets you fly / stops you from flying
