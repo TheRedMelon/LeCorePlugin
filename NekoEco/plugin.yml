@@ -6,4 +6,4 @@ website: www.nekomc.com
 commands:
   balance:
     description: Shows the players balance.
-    aliases: [bal, money]
+    aliases: [bal, money, eco, economy]
