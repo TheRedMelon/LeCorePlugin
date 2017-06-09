@@ -3,6 +3,7 @@ main: me.thedreps.nekoEco.NekoEco
 version: 1.0
 author: TheDreps
 website: www.nekomc.com
+dependancy: NekoChat
 commands:
   balance:
     description: Shows the players balance.
@@ -16,3 +17,5 @@ commands:
   takebalance:
     description: Takes money from the player.
     aliases: [takebal, takemoney, takeeco, takeeconomy]
+  pay:
+    description: Pay another player.

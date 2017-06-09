@@ -7,11 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.thedreps.nekoEco.API;
+import me.thedreps.nekoEco.EcoAPI;
 
 public class AddBalanceCmd implements CommandExecutor{
 
-	API api = new API();
+	EcoAPI api = new EcoAPI();
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
