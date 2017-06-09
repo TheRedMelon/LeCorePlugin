@@ -128,13 +128,13 @@ public class Fly implements CommandExecutor {
 			
 			if (p != null) {
 				
-				if (args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("enable") || args[0].equalsIgnoreCase("true") || args[0].equalsIgnoreCase("yes")) {
+				if (args[1].equalsIgnoreCase("on") || args[1].equalsIgnoreCase("enable") || args[1].equalsIgnoreCase("true") || args[1].equalsIgnoreCase("yes")) {
 					
 					p.sendMessage(prefix + "You were given the gift of flight by " + sender.getName() + ChatColor.RESET + "!");
 					sender.sendMessage(prefix + "You gave the gift of flight to " + p.getName() + ChatColor.RESET + "!");
 					p.setAllowFlight(true);
 					
-				} else if (args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("disable") || args[0].equalsIgnoreCase("false") || args[0].equalsIgnoreCase("no")) {
+				} else if (args[1].equalsIgnoreCase("off") || args[1].equalsIgnoreCase("disable") || args[1].equalsIgnoreCase("false") || args[1].equalsIgnoreCase("no")) {
 					
 					p.setAllowFlight(false);
 					p.sendMessage(prefix + "Your gift of flight was revoked by " + sender.getName() + ChatColor.RESET + "!");
