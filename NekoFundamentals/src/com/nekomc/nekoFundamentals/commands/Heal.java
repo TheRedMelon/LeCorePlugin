@@ -15,19 +15,19 @@ public class Heal implements CommandExecutor {
 		
 		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions";
-		String usage = prefix + "Usage: /kill [player]";
+		String usage = prefix + "Usage: /heal [player]";
 		
 		if (!sender.hasPermission("nf.heal")) {
 			
 			sender.sendMessage(noPerms);
-			return false;
+			return true;
 			
 		}
 		
 		if (args.length > 1) {
 			
 			sender.sendMessage(usage);
-			return false;
+			return true;
 			
 		}
 		
@@ -36,7 +36,7 @@ public class Heal implements CommandExecutor {
 			if (!(sender instanceof Player)) {
 				
 				sender.sendMessage(prefix + "Please run the command as a player if you do not use any arguments!");
-				return false;
+				return true;
 				
 			} else {
 				
@@ -52,7 +52,7 @@ public class Heal implements CommandExecutor {
 			if (!sender.hasPermission("nf.heal.others")) {
 				
 				sender.sendMessage(noPerms);
-				return false;
+				return true;
 				
 			}
 			
@@ -61,7 +61,7 @@ public class Heal implements CommandExecutor {
 			if (p == null) {
 				
 				sender.sendMessage(prefix + "Player: " + p + " was not found!");
-				return false;
+				return true;
 				
 			} else {
 				

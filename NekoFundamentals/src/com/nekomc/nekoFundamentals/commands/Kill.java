@@ -20,21 +20,21 @@ public class Kill implements CommandExecutor {
 		if (!sender.hasPermission("nf.kill")) {
 		
 			sender.sendMessage(noPerms);
-			return false;
+			return true;
 			
 		}
 		
 		if (args.length > 1) {
 			
 			sender.sendMessage(usage);
-			return false;
+			return true;
 			
 		} else if (args.length == 0) {
 			
 			if (!(sender instanceof Player)) {
 				
 				sender.sendMessage(prefix + "Please run the command as a player if you do not use any arguments!");
-				return false;
+				return true;
 				
 			} else {
 				
@@ -51,7 +51,7 @@ public class Kill implements CommandExecutor {
 			if (!sender.hasPermission("nf.kill.others")) {
 				
 				sender.sendMessage(noPerms);
-				return false;
+				return true;
 				
 			} else {
 				

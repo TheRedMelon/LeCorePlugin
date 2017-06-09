@@ -18,14 +18,14 @@ public class Suicide implements CommandExecutor {
 		if (!sender.hasPermission("nf.suicide")) {
 			
 			sender.sendMessage(noPerms);
-			return false;
+			return true;
 			
 		}
 		
 		if (!(sender instanceof Player)) {
 			
 			sender.sendMessage(prefix + "Please run this command as a " + ChatColor.DARK_PURPLE + "PLAYER" + ChatColor.RESET + "!");
-			return false;
+			return true;
 			
 		}
 		
