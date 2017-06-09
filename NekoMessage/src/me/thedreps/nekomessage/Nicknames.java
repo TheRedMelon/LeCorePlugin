@@ -44,10 +44,6 @@ public class Nicknames {
 			}
 			
 			
-			
-			
-			
-			
 		}catch(SQLException sql){
 			sql.printStackTrace();
 			NekoMessage.plugin.getLogger().warning("[NekoMessage] SQL error!");

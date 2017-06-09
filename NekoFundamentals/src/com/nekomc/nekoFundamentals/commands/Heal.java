@@ -14,20 +14,20 @@ public class Heal implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
 		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-		String noPerms = prefix + "Sorry you do not have the required permissions";
+		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /heal [player]";
 		
 		if (!sender.hasPermission("nf.heal")) {
 			
 			sender.sendMessage(noPerms);
-			return false;
+			return true;
 			
 		}
 		
 		if (args.length > 1) {
 			
 			sender.sendMessage(usage);
-			return false;
+			return true;
 			
 		}
 		
@@ -36,14 +36,14 @@ public class Heal implements CommandExecutor {
 			if (!(sender instanceof Player)) {
 				
 				sender.sendMessage(prefix + "Please run the command as a player if you do not use any arguments!");
-				return false;
+				return true;
 				
 			} else {
 				
 				Player p = (Player) sender;
 				
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed yourself!");
+				p.sendMessage(prefix + "You magically healed yourself!");
 				
 			}
 			
@@ -52,7 +52,7 @@ public class Heal implements CommandExecutor {
 			if (!sender.hasPermission("nf.heal.others")) {
 				
 				sender.sendMessage(noPerms);
-				return false;
+				return true;
 				
 			}
 			
@@ -61,13 +61,13 @@ public class Heal implements CommandExecutor {
 			if (p == null) {
 				
 				sender.sendMessage(prefix + "Player: " + p + " was not found!");
-				return false;
+				return true;
 				
 			} else {
 				
 				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + sender.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "magically healed you!");
-				sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You magically healed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
+				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + " magically healed you!");
+				sender.sendMessage(prefix + "You magically healed " + p.getName() + ChatColor.RESET + "!");
 				
 			}
 			

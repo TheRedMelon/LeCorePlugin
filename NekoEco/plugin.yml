@@ -3,3 +3,16 @@ main: me.thedreps.nekoEco.NekoEco
 version: 1.0
 author: TheDreps
 website: www.nekomc.com
+commands:
+  balance:
+    description: Shows the players balance.
+    aliases: [bal, money, eco, economy]
+  setbalance:
+    description: Set a players balance.
+    aliases: [setbal, setmoney, seteco, seteconomy]
+  addbalance:
+    description: Gives the player more money.
+    aliases: [addbal, addmoney, addeco, addeconomy]
+  takebalance:
+    description: Takes money from the player.
+    aliases: [takebal, takemoney, takeeco, takeeconomy]

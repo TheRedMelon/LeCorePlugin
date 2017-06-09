@@ -14,27 +14,27 @@ public class Kill implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
 		String prefix = ChatColor.DARK_PURPLE + "Death" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
-		String noPerms = prefix + "Sorry you do not have the required permissions";
+		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /kill [player]";
 		
 		if (!sender.hasPermission("nf.kill")) {
 		
 			sender.sendMessage(noPerms);
-			return false;
+			return true;
 			
 		}
 		
 		if (args.length > 1) {
 			
 			sender.sendMessage(usage);
-			return false;
+			return true;
 			
 		} else if (args.length == 0) {
 			
 			if (!(sender instanceof Player)) {
 				
 				sender.sendMessage(prefix + "Please run the command as a player if you do not use any arguments!");
-				return false;
+				return true;
 				
 			} else {
 				
@@ -42,7 +42,7 @@ public class Kill implements CommandExecutor {
 				
 				p.setHealth(0D);
 				p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-				p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "Great sadness drove you to suicide");
+				p.sendMessage(prefix + "Great sadness drove you to suicide");
 				
 			}
 			
@@ -51,7 +51,7 @@ public class Kill implements CommandExecutor {
 			if (!sender.hasPermission("nf.kill.others")) {
 				
 				sender.sendMessage(noPerms);
-				return false;
+				return true;
 				
 			} else {
 				
@@ -61,8 +61,8 @@ public class Kill implements CommandExecutor {
 				
 					p.setHealth(0D);
 					p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_DEATH, 10F, 1F);
-					p.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You were killed by " + sender.getName());
-					sender.sendMessage(prefix + ChatColor.LIGHT_PURPLE + "You killed " + p.getName() + ChatColor.RESET + ChatColor.LIGHT_PURPLE + "!");
+					p.sendMessage(prefix + "You were killed by " + sender.getName());
+					sender.sendMessage(prefix + "You killed " + p.getName() + ChatColor.RESET + "!");
 				
 				} else {
 					
