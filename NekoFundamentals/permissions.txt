@@ -9,3 +9,7 @@ nf.kill
 nf.kill.others
 nf.heal
 nf.heal.others
+nf.fly
+nf.fly.others
+nf.feed
+nf.feed.others
