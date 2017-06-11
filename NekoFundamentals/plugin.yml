@@ -6,7 +6,7 @@ main: com.nekomc.nekoFundamentals.NekoFundamentals
 commands:
   gamemode:
     description: Change your gamemode.
-    aliases: gm
+    aliases: [gm, gmc, gms]
   suicide:
     description: kill yourself.
   kill:

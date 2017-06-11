@@ -26,10 +26,35 @@ public class GamemodeCmd implements CommandExecutor{
 		
 		if(p.hasPermission("nf.gamemode")){
 			
+			if(label.equalsIgnoreCase("gmc")){
+				if(p.hasPermission("nf.gamemode.creative")){
+					
+					p.sendMessage(prefix + "Set your gamemode to creative");
+					p.setGameMode(GameMode.CREATIVE);
+					return true;
+					
+				}else{
+					p.sendMessage(noPerms);
+					return true;
+				}
+			}else if(label.equalsIgnoreCase("gms")){
+				if(p.hasPermission("nf.gamemode.survival")){
+					
+					p.sendMessage(prefix + "Set your gamemode to survival");
+					p.setGameMode(GameMode.SURVIVAL);
+					return true;
+					
+				}else{
+					p.sendMessage(noPerms);
+					return true;
+				}
+			}
+			
+			
 			
 			if(args.length == 0 || args.length > 2){
 				p.sendMessage(usage);
-				return false;
+				return true;
 				
 				
 			}else if(args.length == 1){ /// Args 1
@@ -43,11 +68,11 @@ public class GamemodeCmd implements CommandExecutor{
 						
 						p.sendMessage(prefix + "Set your gamemode to survival");
 						p.setGameMode(GameMode.SURVIVAL);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -57,12 +82,13 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.creative")){
 						
+						p.sendMessage(prefix + "Set your gamemode to creative");
 						p.setGameMode(GameMode.CREATIVE);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -72,12 +98,13 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.spectator")){
 						
+						p.sendMessage(prefix + "Set your gamemode to spectator");
 						p.setGameMode(GameMode.SPECTATOR);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -87,31 +114,32 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.adventure")){
 						
+						p.sendMessage(prefix + "Set your gamemode to adventure");
 						p.setGameMode(GameMode.ADVENTURE);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 				}else{
 					p.sendMessage(usage);
-					return false;
+					return true;
 				}
 				
 			}else if(args.length == 2){ ///Args 2
 				
 				if(!(p.hasPermission("nf.gamemode.others"))){
 					p.sendMessage(noPerms);
-					return false;
+					return true;
 				}
 				
 				
 				Player p2 = Bukkit.getPlayer(args[1]);
 				if(p2 == null){
 					p.sendMessage(prefix + "Could not find player " + args[1]);
-					return false;
+					return true;
 				}
 				
 				
@@ -122,12 +150,14 @@ public class GamemodeCmd implements CommandExecutor{
 						
 					if(p.hasPermission("nf.gamemode.survival")){
 					
+						p.sendMessage(prefix + "Set " + p2.getName() + "'s gamemode to survival");
+						p2.sendMessage(prefix + p.getName() + "set your gamemode to survival");
 						p2.setGameMode(GameMode.SURVIVAL);
-						return false;
+						return true;
 						
 					} else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -137,12 +167,14 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.creative")){
 						
+						p.sendMessage(prefix + "Set " + p2.getName() + "'s gamemode to creative");
+						p2.sendMessage(prefix + p.getName() + "set your gamemode to creative");
 						p2.setGameMode(GameMode.CREATIVE);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -152,12 +184,14 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.spectator")){
 						
+						p.sendMessage(prefix + "Set " + p2.getName() + "'s gamemode to spectator");
+						p2.sendMessage(prefix + p.getName() + "set your gamemode to spectator");
 						p2.setGameMode(GameMode.SPECTATOR);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 					
@@ -167,18 +201,20 @@ public class GamemodeCmd implements CommandExecutor{
 					
 					if(p.hasPermission("nf.gamemode.adventure")){
 						
+						p.sendMessage(prefix + "Set " + p2.getName() + "'s gamemode to adventure");
+						p2.sendMessage(prefix + p.getName() + "set your gamemode to adventure");
 						p2.setGameMode(GameMode.ADVENTURE);
-						return false;
+						return true;
 						
 					}else{
 						p.sendMessage(noPerms);
-						return false;
+						return true;
 					}
 					
 				}
 				else{
 					p.sendMessage(usage);
-					return false;
+					return true;
 				}
 				
 			}
@@ -186,7 +222,7 @@ public class GamemodeCmd implements CommandExecutor{
 			
 		}else{
 			p.sendMessage(noPerms);
-			return false;
+			return true;
 		}
 		
 		
@@ -194,7 +230,7 @@ public class GamemodeCmd implements CommandExecutor{
 		
 		
 		
-		return false;
+		return true;
 	}
 
 }

@@ -2,8 +2,6 @@ package me.thedreps.nekochat;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -16,17 +14,10 @@ import me.thedreps.nekochat.commands.RulesCmd;
 import me.thedreps.nekochat.events.OnChat;
 import me.thedreps.nekochat.events.PlayerJoin;
 import me.thedreps.nekochat.events.PlayerQuit;
-import me.thedreps.nekochat.sql.MySQL;
-import me.thedreps.nekochat.sql.SQLD;
 
 public class NekoChat extends JavaPlugin{
 	
 	public static NekoChat plugin;
-	
-	public static Connection c;
-	MySQL SQL = new MySQL(SQLD.host, SQLD.port, SQLD.db, SQLD.user, SQLD.pw);
-
-	
 	
 	public void onEnable(){
 		registerConfig();
@@ -34,19 +25,7 @@ public class NekoChat extends JavaPlugin{
 		registerCommands();
 		
 		
-		try{
-			c = SQL.open();
-		}catch(Exception sql){
-			sql.printStackTrace();
-		}
-		
-		
 		plugin = this;
-	}
-	
-	
-	public void onDisbale(){
-		c = MySQL.closeConnection(c);
 	}
 	
 	
