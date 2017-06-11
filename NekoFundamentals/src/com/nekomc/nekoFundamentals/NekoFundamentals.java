@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.nekomc.nekoFundamentals.commands.Feed;
 import com.nekomc.nekoFundamentals.commands.Fly;
 import com.nekomc.nekoFundamentals.commands.GamemodeCmd;
+import com.nekomc.nekoFundamentals.commands.Hat;
 import com.nekomc.nekoFundamentals.commands.Heal;
 import com.nekomc.nekoFundamentals.commands.Kill;
 import com.nekomc.nekoFundamentals.commands.Suicide;
@@ -25,6 +26,7 @@ public class NekoFundamentals extends JavaPlugin{
 		getCommand("heal").setExecutor(new Heal());
 		getCommand("fly").setExecutor(new Fly());
 		getCommand("feed").setExecutor(new Feed());
+		getCommand("hat").setExecutor(new Hat());
 		
 	}
 	
