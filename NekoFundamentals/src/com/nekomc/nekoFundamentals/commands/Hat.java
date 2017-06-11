@@ -35,6 +35,7 @@ public class Hat implements CommandExecutor {
 		if (args.length != 0) {
 			
 			sender.sendMessage(usage);
+			return true;
 			
 		}
 		
@@ -42,11 +43,18 @@ public class Hat implements CommandExecutor {
 		ItemStack i = p.getInventory().getItemInMainHand();
 		ItemStack head = p.getInventory().getHelmet();
 		
+		if (i == null || i.getType() == Material.AIR) {
+			
+			p.sendMessage(prefix + "You cannot wear air on your head!");
+			return true;
+			
+		}
+		
 		if (p.hasPermission("nf.hat.stack") || (i.getAmount() == 1)) {
 			
 			p.getInventory().setHelmet(i);
 			
-			if (!(head.getType() == Material.AIR || head == null)) {
+			if (!(head == null || head.getType() == Material.AIR)) {
 				
 				p.getInventory().setItemInMainHand(head);
 				
@@ -64,7 +72,7 @@ public class Hat implements CommandExecutor {
 			p.getInventory().setItemInMainHand(items);
 			p.getInventory().setHelmet(new ItemStack(material, 1));
 			
-			if (!(head.getType() == Material.AIR || head == null)) {
+			if (!(head == null || head.getType() == Material.AIR)) {
 			
 				if (empty == -1) {
 					
