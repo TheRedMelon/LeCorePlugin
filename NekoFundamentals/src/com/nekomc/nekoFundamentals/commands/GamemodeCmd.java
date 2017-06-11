@@ -26,6 +26,30 @@ public class GamemodeCmd implements CommandExecutor{
 		
 		if(p.hasPermission("nf.gamemode")){
 			
+			if(label.equalsIgnoreCase("gmc")){
+				if(p.hasPermission("nf.gamemode.creative")){
+					
+					p.setGameMode(GameMode.CREATIVE);
+					return false;
+					
+				}else{
+					p.sendMessage(noPerms);
+					return false;
+				}
+			}else if(label.equalsIgnoreCase("gms")){
+				if(p.hasPermission("nf.gamemode.survival")){
+					
+					p.sendMessage(prefix + "Set your gamemode to survival");
+					p.setGameMode(GameMode.SURVIVAL);
+					return false;
+					
+				}else{
+					p.sendMessage(noPerms);
+					return false;
+				}
+			}
+			
+			
 			
 			if(args.length == 0 || args.length > 2){
 				p.sendMessage(usage);

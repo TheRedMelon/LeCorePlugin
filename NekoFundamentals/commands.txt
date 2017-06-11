@@ -1,4 +1,4 @@
-*feed (feed others)
+						*feed (feed others)
 						*fly (fly others)
 						*gamemode (gamemode others)
 *hat
