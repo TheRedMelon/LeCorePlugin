@@ -2,21 +2,22 @@ package com.nekomc.nekoFundamentals.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Feed implements CommandExecutor {
+public class HealCmd implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
-				
+		
 		String prefix = ChatColor.DARK_PURPLE + "Cheat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions.";
-		String usage = prefix + "Usage: /feed [player]";
+		String usage = prefix + "Usage: /heal [player]";
 		
-		if (!sender.hasPermission("nf.feed")) {
+		if (!sender.hasPermission("nf.heal")) {
 			
 			sender.sendMessage(noPerms);
 			return true;
@@ -41,14 +42,15 @@ public class Feed implements CommandExecutor {
 				
 				Player p = (Player) sender;
 				
+				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
 				p.setFoodLevel(20);
-				p.sendMessage(prefix + "You magically fed yourself!");
+				p.sendMessage(prefix + "You magically healed yourself!");
 				
 			}
 			
 		} else {
 			
-			if (!sender.hasPermission("nf.feed.others")) {
+			if (!sender.hasPermission("nf.heal.others")) {
 				
 				sender.sendMessage(noPerms);
 				return true;
@@ -64,16 +66,17 @@ public class Feed implements CommandExecutor {
 				
 			} else {
 				
+				p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
 				p.setFoodLevel(20);
-				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + " magically fed you!");
-				sender.sendMessage(prefix + "You magically fed " + p.getName() + ChatColor.RESET + "!");
+				p.sendMessage(prefix + sender.getName() + ChatColor.RESET + " magically healed you!");
+				sender.sendMessage(prefix + "You magically healed " + p.getName() + ChatColor.RESET + "!");
 				
 			}
 			
 		}
 		
 		return true;
-	
+		
 	}
 
 }
