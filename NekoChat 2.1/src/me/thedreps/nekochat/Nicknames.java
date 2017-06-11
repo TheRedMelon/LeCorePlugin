@@ -1,23 +1,33 @@
 package me.thedreps.nekochat;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.bukkit.Bukkit;
 
+import me.thedreps.nekochat.sql.MySQL;
+import me.thedreps.nekochat.sql.SQLD;
+
 public class Nicknames {
+	
+	public static Connection c;
+	MySQL SQL = new MySQL(SQLD.host, SQLD.port, SQLD.db, SQLD.user, SQLD.pw);
 	
 	public String getNickname(String uuid){
 		
 		try{
-			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
+			c = SQL.open();
+			ResultSet res = c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
 			
 			
 			if(!res.next()){
 				setNickname(uuid, "off");
+				c = MySQL.closeConnection(c);
 				return "off";
 				
 				
 			}else{
+				c = MySQL.closeConnection(c);
 				return res.getString("nickname");
 			}
 			
@@ -36,12 +46,15 @@ public class Nicknames {
 	public void setNickname(String uuid, String name){
 		
 		try{
+			c = SQL.open();
 			
-			ResultSet res = NekoChat.c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
+			ResultSet res = c.createStatement().executeQuery("SELECT * FROM `nicknames` WHERE `uuid`= '" + uuid + "'");
 			if(!res.next()){
-				NekoChat.c.createStatement().executeUpdate("INSERT INTO `nicknames` (`uuid`,`nickname`) VALUES ('" + uuid + "','" + name +"')");
+				c.createStatement().executeUpdate("INSERT INTO `nicknames` (`uuid`,`nickname`) VALUES ('" + uuid + "','" + name +"')");
+				c = MySQL.closeConnection(c);
 			}else{
-				NekoChat.c.createStatement().executeUpdate("UPDATE `nicknames` SET `nickname`='" + name + "' WHERE `uuid`='" + uuid + "'");
+				c.createStatement().executeUpdate("UPDATE `nicknames` SET `nickname`='" + name + "' WHERE `uuid`='" + uuid + "'");
+				c = MySQL.closeConnection(c);
 			}
 			
 			
