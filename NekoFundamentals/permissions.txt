@@ -13,3 +13,5 @@ nf.fly
 nf.fly.others
 nf.feed
 nf.feed.others
+nf.hat
+nf.hat.stack

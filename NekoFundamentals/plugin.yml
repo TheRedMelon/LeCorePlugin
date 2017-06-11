@@ -17,3 +17,5 @@ commands:
     description: lets you fly/stops you from flying.
   feed:
     description: feeds you, or others.
+  hat:
+    description: gives you a hat, from what you are holding.

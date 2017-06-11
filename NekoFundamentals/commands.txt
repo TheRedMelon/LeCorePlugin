@@ -1,7 +1,7 @@
 						*feed (feed others)
 						*fly (fly others)
 						*gamemode (gamemode others)
-*hat
+						*hat
 						*heal (heal others)
 *item (item others)
 *kit (make kit, kit others, specific kits) [GUI]
