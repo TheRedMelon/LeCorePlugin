@@ -7,6 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.MaterialData;
 
 public class Hat implements CommandExecutor {
 
@@ -43,27 +44,38 @@ public class Hat implements CommandExecutor {
 		
 		if (p.hasPermission("nf.hat.stack") || (i.getAmount() == 1)) {
 			
-			p.getInventory().setItemInMainHand(head);
 			p.getInventory().setHelmet(i);
+			
+			if (!(head.getType() == Material.AIR || head == null)) {
+				
+				p.getInventory().setItemInMainHand(head);
+				
+			}
 			
 		} else {
 			
 			int size = i.getAmount();
 			Material material = i.getType();
+			MaterialData data = i.getData();
 			ItemStack items = new ItemStack(material, (size - 1));
 			int empty = p.getInventory().firstEmpty();
 			
+			items.setData(data);
 			p.getInventory().setItemInMainHand(items);
 			p.getInventory().setHelmet(new ItemStack(material, 1));
 			
-			if (empty == -1) {
-				
-				p.getWorld().dropItem(p.getLocation(), head);
-				
-			} else {
-				
-				p.getInventory().addItem(head);
-				
+			if (!(head.getType() == Material.AIR || head == null)) {
+			
+				if (empty == -1) {
+					
+					p.getWorld().dropItem(p.getLocation(), head);
+					
+				} else {
+					
+					p.getInventory().addItem(head);
+					
+				}
+			
 			}
 			
 		}
