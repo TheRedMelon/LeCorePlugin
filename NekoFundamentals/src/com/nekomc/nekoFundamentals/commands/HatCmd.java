@@ -53,19 +53,15 @@ public class HatCmd implements CommandExecutor {
 		if (p.hasPermission("nf.hat.stack") || (i.getAmount() == 1)) {
 			
 			p.getInventory().setHelmet(i);
-			
-			if (!(head == null || head.getType() == Material.AIR)) {
-				
-				p.getInventory().setItemInMainHand(head);
-				
-			}
+			p.getInventory().setItemInMainHand(head);
 			
 		} else {
 			
 			int size = i.getAmount();
 			Material material = i.getType();
 			MaterialData data = i.getData();
-			ItemStack items = new ItemStack(material, (size - 1));
+			short dura = i.getDurability();
+			ItemStack items = new ItemStack(material, (size - 1), dura);
 			int empty = p.getInventory().firstEmpty();
 			
 			items.setData(data);
@@ -88,6 +84,7 @@ public class HatCmd implements CommandExecutor {
 			
 		}
 		
+		p.sendMessage(prefix + "That's a sexy looking hat you got there!");
 		return true;
 		
 	}
