@@ -1,9 +1,10 @@
 package me.thedreps.nekomessage.commands;
 
+import com.nekomc.nekocore.api.NicknamesAPI;
+import com.nekomc.nekocore.api.RankAPI;
+
 import me.thedreps.nekomessage.DataStorage;
 import me.thedreps.nekomessage.NekoMessage;
-import me.thedreps.nekomessage.Nicknames;
-import me.thedreps.nekomessage.Rank;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -16,8 +17,8 @@ public class ReplyCmd extends Command{
 		super("reply", "", "r");
 	}
 	
-	Rank rank = new Rank();
-	Nicknames nick = new Nicknames();
+	RankAPI rank = new RankAPI();
+	NicknamesAPI nick = new NicknamesAPI();
 	String prefix = ChatColor.DARK_PURPLE + "Msg" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 
 	@Override
