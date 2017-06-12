@@ -7,6 +7,7 @@ import com.nekomc.nekoFundamentals.commands.FlyCmd;
 import com.nekomc.nekoFundamentals.commands.GamemodeCmd;
 import com.nekomc.nekoFundamentals.commands.HatCmd;
 import com.nekomc.nekoFundamentals.commands.HealCmd;
+import com.nekomc.nekoFundamentals.commands.ItemCmd;
 import com.nekomc.nekoFundamentals.commands.KillCmd;
 import com.nekomc.nekoFundamentals.commands.SuicideCmd;
 
@@ -27,6 +28,7 @@ public class NekoFundamentals extends JavaPlugin{
 		getCommand("fly").setExecutor(new FlyCmd());
 		getCommand("feed").setExecutor(new FeedCmd());
 		getCommand("hat").setExecutor(new HatCmd());
+		getCommand("item").setExecutor(new ItemCmd());
 		
 	}
 	
