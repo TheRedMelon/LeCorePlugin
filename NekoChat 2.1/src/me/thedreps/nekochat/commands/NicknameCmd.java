@@ -6,14 +6,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import com.nekomc.nekocore.api.NicknamesAPI;
+
 import me.thedreps.nekochat.NekoChat;
-import me.thedreps.nekochat.Nicknames;
 
 public class NicknameCmd implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
-		Nicknames nicknames = new Nicknames();
+		NicknamesAPI nicknames = new NicknamesAPI();
 		String prefix = ChatColor.DARK_PURPLE + "Chat" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 
 		if (!(sender instanceof Player)) {

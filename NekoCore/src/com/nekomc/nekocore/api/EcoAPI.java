@@ -1,16 +1,17 @@
-package me.thedreps.nekoEco;
+package com.nekomc.nekocore.api;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import me.thedreps.nekoEco.sql.MySQL;
-import me.thedreps.nekoEco.sql.SQLD;
+import com.nekomc.nekocore.NekoCore;
+import com.nekomc.nekocore.sql.economy.Economy;
+import com.nekomc.nekocore.sql.economy.MySQL;
 
 public class EcoAPI {
 	
 	public static Connection c;
-	MySQL SQL = new MySQL(SQLD.host, SQLD.port, SQLD.db, SQLD.user, SQLD.pw);
+	MySQL SQL = new MySQL(Economy.host, Economy.port, Economy.db, Economy.user, Economy.pw);
 
 	public Integer getBal(String uuid) {
 
@@ -33,7 +34,7 @@ public class EcoAPI {
 			sql.printStackTrace();
 		}
 
-		NekoEco.plugin.getLogger().warning("[NekoEco] SQL error!");
+		NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Economy)");
 		return 0;
 
 	}
@@ -59,7 +60,7 @@ public class EcoAPI {
 
 		} catch (SQLException sql) {
 			sql.printStackTrace();
-			NekoEco.plugin.getLogger().warning("[NekoEco] SQL error!");
+			NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Economy)");
 		}
 	}
 
@@ -86,7 +87,7 @@ public class EcoAPI {
 
 		} catch (SQLException sql) {
 			sql.printStackTrace();
-			NekoEco.plugin.getLogger().warning("[NekoEco] SQL error!");
+			NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Economy)");
 		}
 	}
 
@@ -113,7 +114,7 @@ public class EcoAPI {
 
 		} catch (SQLException sql) {
 			sql.printStackTrace();
-			NekoEco.plugin.getLogger().warning("[NekoEco] SQL error!");
+			NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Economy)");
 		}
 	}
 

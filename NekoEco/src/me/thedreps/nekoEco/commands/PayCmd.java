@@ -9,15 +9,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.thedreps.nekoEco.EcoAPI;
-import me.thedreps.nekochat.Nicknames;
-import me.thedreps.nekochat.Rank;
+import com.nekomc.nekocore.api.EcoAPI;
+import com.nekomc.nekocore.api.NicknamesAPI;
+import com.nekomc.nekocore.api.RankAPI;
 
 public class PayCmd implements CommandExecutor {
 
 	EcoAPI api = new EcoAPI();
-	Nicknames nick = new Nicknames();
-	Rank rank = new Rank();
+	NicknamesAPI nick = new NicknamesAPI();
+	RankAPI rank = new RankAPI();
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 

@@ -3,3 +3,4 @@ main: me.thedreps.nekomessage.NekoMessage
 version: 1.0
 author: TheDreps
 website: www.nekomc.com
+dependancy: NekoCore

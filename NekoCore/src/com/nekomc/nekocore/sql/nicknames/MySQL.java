@@ -1,4 +1,4 @@
-package me.thedreps.nekoEco.sql;
+package com.nekomc.nekocore.sql.nicknames;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

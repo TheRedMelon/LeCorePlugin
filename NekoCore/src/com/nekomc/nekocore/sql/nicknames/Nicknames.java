@@ -1,6 +1,6 @@
-package me.thedreps.nekochat.sql;
+package com.nekomc.nekocore.sql.nicknames;
 
-public class SQLD {
+public class Nicknames {
 	
 	public static String host = "nekomc.com";
 	public static String port = "3306";

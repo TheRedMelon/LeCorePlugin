@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.thedreps.nekoEco.EcoAPI;
+import com.nekomc.nekocore.api.EcoAPI;
 
 public class AddBalanceCmd implements CommandExecutor{
 
@@ -18,7 +18,7 @@ public class AddBalanceCmd implements CommandExecutor{
 		String prefix = ChatColor.DARK_PURPLE + "Eco" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String playerNotFound = prefix + "That player could not be found.";
-		String usage = prefix + "Usage: /addbal [player] <amount>";
+		String usage = prefix + "Usage: /addbal <amount> [player]";
 		
 		if (!(sender instanceof Player)) {
 			sender.sendMessage(prefix + "This command is for players only!");

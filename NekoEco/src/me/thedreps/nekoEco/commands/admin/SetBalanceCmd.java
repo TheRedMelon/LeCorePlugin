@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import me.thedreps.nekoEco.EcoAPI;
+import com.nekomc.nekocore.api.EcoAPI;
 
 public class SetBalanceCmd implements CommandExecutor{
 	

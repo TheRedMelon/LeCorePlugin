@@ -1,4 +1,4 @@
-package me.thedreps.nekochat;
+package com.nekomc.nekocore.api;
 
 import java.util.UUID;
 
@@ -6,7 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-public class Rank {
+public class RankAPI {
 	
 	  public String getRank(UUID uuid)
 	  {

@@ -3,6 +3,7 @@ main: me.thedreps.nekochat.NekoChat
 version: 2.2.1
 author: TheDreps
 description: Manages chat events in NekoMC
+dependancy: NekoCore
 website: www.nekomc.com
 commands:
   rules:

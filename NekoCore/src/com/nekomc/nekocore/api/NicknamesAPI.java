@@ -1,17 +1,18 @@
-package me.thedreps.nekochat;
+package com.nekomc.nekocore.api;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.bukkit.Bukkit;
 
-import me.thedreps.nekochat.sql.MySQL;
-import me.thedreps.nekochat.sql.SQLD;
+import com.nekomc.nekocore.NekoCore;
+import com.nekomc.nekocore.sql.nicknames.MySQL;
+import com.nekomc.nekocore.sql.nicknames.Nicknames;
 
-public class Nicknames {
+
+public class NicknamesAPI {
 	
 	public static Connection c;
-	MySQL SQL = new MySQL(SQLD.host, SQLD.port, SQLD.db, SQLD.user, SQLD.pw);
+	MySQL SQL = new MySQL(Nicknames.host, Nicknames.port, Nicknames.db, Nicknames.user, Nicknames.pw);
 	
 	public String getNickname(String uuid){
 		
@@ -37,7 +38,7 @@ public class Nicknames {
 		}
 		
 		
-		Bukkit.getLogger().warning("[NekoChat] SQL error!");
+		NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Nicknames)");
 		return "off";
 	}
 	
@@ -64,7 +65,7 @@ public class Nicknames {
 			
 		}catch(SQLException sql){
 			sql.printStackTrace();
-			Bukkit.getLogger().warning("[NekoChat] SQL error!");
+			NekoCore.plugin.getLogger().warning("[NekoCore] SQL error! (Nicknames)");
 		}
 	}
 

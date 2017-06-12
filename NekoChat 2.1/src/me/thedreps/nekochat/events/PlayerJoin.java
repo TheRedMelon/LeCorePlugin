@@ -7,12 +7,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import com.nekomc.nekocore.api.RankAPI;
+
 import me.thedreps.nekochat.NekoChat;
-import me.thedreps.nekochat.Rank;
 
 public class PlayerJoin implements Listener{
 	
-	Rank rankClass = new Rank();
+	RankAPI rankClass = new RankAPI();
 	
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e){

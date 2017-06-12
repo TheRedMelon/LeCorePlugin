@@ -7,11 +7,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import me.thedreps.nekochat.Rank;
+import com.nekomc.nekocore.api.RankAPI;
 
 public class PlayerQuit implements Listener{
 	
-	Rank rankClass = new Rank();
+	RankAPI rankClass = new RankAPI();
 	
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent e){

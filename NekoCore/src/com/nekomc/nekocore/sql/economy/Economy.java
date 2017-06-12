@@ -1,6 +1,6 @@
-package me.thedreps.nekoEco.sql;
+package com.nekomc.nekocore.sql.economy;
 
-public class SQLD {
+public class Economy {
 	
 	public static String host = "nekomc.com";
 	public static String port = "3306";

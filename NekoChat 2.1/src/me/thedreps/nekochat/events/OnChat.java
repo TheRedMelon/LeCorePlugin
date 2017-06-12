@@ -6,14 +6,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import com.nekomc.nekocore.api.NicknamesAPI;
+import com.nekomc.nekocore.api.RankAPI;
+
 import me.thedreps.nekochat.NekoChat;
-import me.thedreps.nekochat.Nicknames;
-import me.thedreps.nekochat.Rank;
 
 public class OnChat implements Listener {
 
-	Rank rank = new Rank();
-	Nicknames nicknames = new Nicknames();
+	RankAPI rank = new RankAPI();
+	NicknamesAPI nicknames = new NicknamesAPI();
 
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent event) {
