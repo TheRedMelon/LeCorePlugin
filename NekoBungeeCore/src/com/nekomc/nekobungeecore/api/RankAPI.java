@@ -7,7 +7,7 @@ import com.nekomc.nekobungeecore.NekoBungeeCore;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
-public class Rank {
+public class RankAPI {
 	
 	  public String getRank(UUID uuid)
 	  {

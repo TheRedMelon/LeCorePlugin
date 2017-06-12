@@ -2,8 +2,8 @@ package me.thedreps.nekomessage.commands;
 
 import java.util.Arrays;
 
-import com.nekomc.nekocore.api.NicknamesAPI;
-import com.nekomc.nekocore.api.RankAPI;
+import com.nekomc.nekobungeecore.api.NicknamesAPI;
+import com.nekomc.nekobungeecore.api.RankAPI;
 
 import me.thedreps.nekomessage.DataStorage;
 import me.thedreps.nekomessage.NekoMessage;
