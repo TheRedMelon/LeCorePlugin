@@ -66,7 +66,7 @@ public class HatCmd implements CommandExecutor {
 			
 			items.setData(data);
 			p.getInventory().setItemInMainHand(items);
-			p.getInventory().setHelmet(new ItemStack(material, 1));
+			p.getInventory().setHelmet(new ItemStack(material, 1, dura));
 			
 			if (!(head == null || head.getType() == Material.AIR)) {
 			
