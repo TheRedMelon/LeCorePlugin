@@ -11,7 +11,7 @@ public class ItemCmd implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String command, String[] args) {
 		
-		String prefix = ChatColor.DARK_PURPLE + "Cosmetics" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
+		String prefix = ChatColor.DARK_PURPLE + "Cheats" + ChatColor.DARK_GRAY + " | " + ChatColor.RESET;
 		String noPerms = prefix + "Sorry you do not have the required permissions.";
 		String usage = prefix + "Usage: /item <item name/id>.... [amount] [enchantment]";
 		

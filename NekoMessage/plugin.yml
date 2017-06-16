@@ -1,6 +1,5 @@
 name: NekoMessage
 main: me.thedreps.nekomessage.NekoMessage
-version: 1.0
+version: 1.1
 author: TheDreps
 website: www.nekomc.com
-dependancy: NekoCore

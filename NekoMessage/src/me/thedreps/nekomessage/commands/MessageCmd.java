@@ -1,10 +1,12 @@
 package me.thedreps.nekomessage.commands;
 
 import java.util.Arrays;
+
+import com.nekomc.nekobungeecore.api.NicknamesAPI;
+import com.nekomc.nekobungeecore.api.RankAPI;
+
 import me.thedreps.nekomessage.DataStorage;
 import me.thedreps.nekomessage.NekoMessage;
-import me.thedreps.nekomessage.Nicknames;
-import me.thedreps.nekomessage.Rank;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -18,8 +20,8 @@ public class MessageCmd extends Command {
 		super("msg", "", "message", "m", "w", "whisper", "t", "tell");
 	}
 	
-	Rank rank = new Rank();
-	Nicknames nick = new Nicknames();
+	RankAPI rank = new RankAPI();
+	NicknamesAPI nick = new NicknamesAPI();
 	DataStorage storage = new DataStorage();
 
 	@Override
