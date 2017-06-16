@@ -43,6 +43,7 @@ public class ItemCmd implements CommandExecutor {
 			arg2i = args[0].indexOf(";");
 			arg2i = args[0].indexOf(":");
 			String arg2 = args[0].substring(arg2i + 1);
+			String arg1 = args[0].substring(0, arg2i - 1);
 			
 			
 		}
