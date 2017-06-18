@@ -20,7 +20,7 @@
 						*suicide
 *whois (whois vanish)
 *broadcast (NekoChat)
-*Alert (NekoMessage)
+						*Alert (NekoMessage)
 *clearinventory (clearinventory others)
 *invsee (invsee modify, invsee preventmodify)
 						*kill
